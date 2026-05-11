@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết tour - TravelTour</title>
+
+    <link rel="stylesheet" href="../../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/tours/chitiet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+      #tour-meeting-map {
+        width: 100%;
+        height: 320px;
+        min-height: 320px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        margin-top: 12px;
+        position: relative;
+        overflow: hidden;
+        background: #e5f0ff;
+      }
+
+      .meeting-point-text {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .meeting-point-empty {
+        color: #888;
+        font-style: italic;
+      }
+
+      .tour-thumbs {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .tour-thumb {
+        padding: 0;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #fff;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .tour-thumb:hover {
+        transform: translateY(-2px);
+      }
+
+      .tour-thumb.active {
+        border-color: #10a669;
+      }
+
+      .tour-thumb img {
+        width: 100%;
+        height: 80px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-gallery__item--main img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+      }
+
+      .map-empty-box {
+        width: 100%;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #888;
+        text-align: center;
+        padding: 16px;
+      }
+
+      .leaflet-container {
+        width: 100%;
+        height: 100%;
+        background: #dbeafe;
+      }
+
+      .leaflet-container img,
+      .leaflet-pane img,
+      .leaflet-tile {
+        width: auto !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: initial !important;
+      }
+
+      .leaflet-tile {
+        visibility: inherit !important;
+      }
+
+      .leaflet-control-container {
+        z-index: 800;
+      }
+    </style>
+  </head>
+  <body class="tour-detail-page has-public-navbar">
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a
+          href="../../index.html"
+          class="logo"
+          aria-label="Về trang chủ"
+          ><span data-setting-text="platform_name">TravelTour</span></a
+        >
+
+        <ul class="nav-menu">
+          <li><a href="../../index.html">Trang chủ</a></li>
+          <li><a href="../../index.html#about">Giới thiệu</a></li>
+          <li><a href="./dstour.html">Điểm đến</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button type="button" class="btn btn-primary">Đặt tour</button>
+          <button type="button" class="btn btn-outline" id="btnLogout">
+            Đăng xuất
+          </button>
+          <a href="../customer/customer.html" class="user-icon">👤</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page-main">
+      <div class="detail-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Trang chủ</a>
+          <span>/</span>
+          <a href="./dstour.html">Tours</a>
+          <span>/</span>
+          <span id="breadcrumb-title">Chi tiết tour</span>
+        </nav>
+
+        <section class="hero-card">
+          <div class="hero-card__intro">
+            <h1 id="tour-title">Đang tải dữ liệu tour...</h1>
+
+            <div class="hero-meta">
+              <div class="hero-meta__item">
+                <span>📍</span>
+                <span id="tour-location">Đang cập nhật</span>
+              </div>
+
+              <div class="hero-meta__item">
+                <span>🏢</span>
+                <span id="tour-provider">Đang cập nhật</span>
+              </div>
+            </div>
+
+            <p class="hero-card__subtitle" id="tour-description">
+              Đang tải mô tả tour...
+            </p>
+          </div>
+
+          <div class="hero-gallery" id="tour-gallery">
+            <figure class="hero-gallery__item hero-gallery__item--main">
+              <img
+                id="tour-main-image"
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                alt="Ảnh tour"
+              />
+            </figure>
+
+            <div class="tour-thumbs" id="tour-thumbs"></div>
+          </div>
+        </section>
+
+        <div class="detail-sections">
+          <section class="section-card">
+            <h2>Tổng quan về tour</h2>
+              
+            <section class="section-card" id="tour-extra-info-section" style="display: none;">
+  <div class="extra-info-grid">
+
+    <!-- Khách sạn -->
+    <div class="extra-info-item" id="hotel-info-wrap" style="display: none;">
+      <div class="extra-info-icon">🏨</div>
+      <div class="extra-info-content">
+        <h3>Khách sạn</h3>
+        <p id="tour-hotel-info"></p>
+      </div>
+    </div>
+
+    <!-- Di chuyển -->
+    <div class="extra-info-item" id="transport-info-wrap" style="display: none;">
+      <div class="extra-info-icon">🚗</div>
+      <div class="extra-info-content">
+        <h3>Phương tiện di chuyển</h3>
+        <p id="tour-transport-info"></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+            <div class="overview-stats">
+              <article class="overview-stat">
+                <div>
+                  <span class="overview-stat__label">Thời gian</span>
+                  <strong id="tour-duration">--</strong>
+                </div>
+              </article>
+
+              <article class="overview-stat">
+                <div>
+                  <span class="overview-stat__label">Số người tối đa</span>
+                  <strong id="tour-capacity">--</strong>
+                </div>
+              </article>
+
+              <article class="overview-stat">
+                <div>
+                  <span class="overview-stat__label">Giá tour</span>
+                  <strong id="tour-price">--</strong>
+                </div>
+              </article>
+            </div>
+
+            <div class="section-copy">
+              <p id="tour-description-full">Đang tải nội dung chi tiết...</p>
+            </div>
+          </section>
+
+          <section class="section-card">
+            <h2>Điểm tập trung</h2>
+            <p id="tour-meeting-point" class="meeting-point-text">
+              Đang cập nhật...
+            </p>
+            <div id="tour-meeting-map"></div>
+          </section>
+
+          <section class="section-card">
+            <h2>Dịch vụ bao gồm</h2>
+            <ul class="check-list" id="tour-includes-list">
+              <li>Đang tải...</li>
+            </ul>
+          </section>
+
+          <section class="section-card">
+            <h2>Không bao gồm</h2>
+            <ul class="exclude-list" id="tour-excludes-list">
+              <li>Đang tải...</li>
+            </ul>
+          </section>
+
+          <section class="section-card section-card--itinerary">
+            <h2>Lịch trình chi tiết</h2>
+            <div id="tour-itinerary" class="tour-itinerary-root">
+              <p>Đang tải lịch trình...</p>
+            </div>
+          </section>
+
+          <section class="section-card" id="tour-reviews-section">
+            <h2>Đánh giá từ khách hàng</h2>
+            <div id="reviews-summary-root" class="reviews-summary-wrap"></div>
+            <p id="reviews-viewer-hint" class="reviews-viewer-hint" hidden></p>
+            <div id="reviews-compose" class="reviews-compose" style="display: none">
+              <h3 class="reviews-compose__title">Viết đánh giá</h3>
+              <label class="reviews-compose__field">
+                <span>Số sao</span>
+                <select id="review-rating-input" aria-label="Số sao đánh giá">
+                  <option value="5" selected>5 sao</option>
+                  <option value="4">4 sao</option>
+                  <option value="3">3 sao</option>
+                  <option value="2">2 sao</option>
+                  <option value="1">1 sao</option>
+                </select>
+              </label>
+              <label class="reviews-compose__field">
+                <span>Nội dung</span>
+                <textarea
+                  id="review-comment-input"
+                  rows="4"
+                  maxlength="2000"
+                  placeholder="Chia sẻ trải nghiệm của bạn (tối thiểu 10 ký tự)"
+                ></textarea>
+              </label>
+              <div class="reviews-compose__actions">
+                <button type="button" class="primary-button" id="review-submit-btn">Gửi đánh giá</button>
+                <button type="button" class="ghost-button" id="review-delete-btn" style="display: none">
+                  Xóa bản nháp chờ duyệt
+                </button>
+              </div>
+              <p id="reviews-compose-msg" class="reviews-compose-msg" role="status"></p>
+            </div>
+            <div id="reviews-list" class="reviews-list"></div>
+          </section>
+
+          <section class="section-card" id="tour-policy-section" style="display: none;">
+            <h2>Chính sách & Điều khoản</h2>
+
+            <div class="section-copy" id="cancel-policy-wrap" style="display: none;">
+              <h3>Chính sách hủy tour</h3>
+              <p id="tour-cancel-policy"></p>
+            </div>
+
+            <div
+              class="section-copy"
+              id="terms-conditions-wrap"
+              style="display: none; margin-top: 16px;"
+            >
+              <h3>Điều khoản & Điều kiện</h3>
+              <p id="tour-terms-conditions"></p>
+            </div>
+
+            <div
+              class="section-copy"
+              id="other-notes-wrap"
+              style="display: none; margin-top: 16px;"
+            >
+              <h3>Ghi chú</h3>
+              <p id="tour-other-notes"></p>
+            </div>
+          </section>
+
+          <section class="booking-panel">
+            <div class="booking-card">
+              <div class="booking-card__price">
+                <div class="booking-card__price-main">
+                  <strong id="booking-tour-price">--</strong>
+                  <span>/ người</span>
+                </div>
+                <p>Giá từ nhà cung cấp tour</p>
+              </div>
+
+              <form class="booking-form" id="booking-form">
+                <div class="booking-field-group">
+                  <label class="booking-field">
+                    <span>Ngày khởi hành</span>
+                    <input
+                      id="departure-date"
+                      name="departure-date"
+                      type="date"
+                      readonly
+                      aria-readonly="true"
+                      title="Dữ liệu do nhà cung cấp tour cấu hình"
+                    />
+                  </label>
+                  <label class="booking-field">
+                    <span>Ngày kết thúc</span>
+                    <input
+                      id="tour-end-date"
+                      name="tour-end-date"
+                      type="date"
+                      readonly
+                      aria-readonly="true"
+                      title="Do nhà cung cấp tour cấu hình"
+                    />
+                  </label>
+                </div>
+
+                <div class="booking-field-group">
+                  <label class="booking-field">
+                    <span>Số lượng khách</span>
+                    <select id="adult-count" name="adult-count">
+                      <option value="1">1 người lớn</option>
+                      <option value="2" selected>2 người lớn</option>
+                      <option value="3">3 người lớn</option>
+                      <option value="4">4 người lớn</option>
+                      <option value="5">5 người lớn</option>
+                    </select>
+                  </label>
+
+                  <label class="booking-field">
+                    <span>&nbsp;</span>
+                    <select id="child-count" name="child-count">
+                      <option value="0" selected>0 trẻ em</option>
+                      <option value="1">1 trẻ em</option>
+                      <option value="2">2 trẻ em</option>
+                      <option value="3">3 trẻ em</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="booking-summary">
+                  <div class="booking-summary__row">
+                    <span id="booking-line-label">--</span>
+                    <strong id="booking-line-total">--</strong>
+                  </div>
+
+                  <div class="booking-summary__row booking-summary__row--total">
+                    <span>Tổng cộng</span>
+                    <strong id="booking-grand-total">--</strong>
+                  </div>
+                </div>
+
+                <div class="booking-actions">
+                  <button type="submit" class="primary-button">Đặt ngay</button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../../assets/js/caidat.js"></script>
+    <script src="../../assets/js/tours/chitiet.js"></script>
+  </body>
+</html>

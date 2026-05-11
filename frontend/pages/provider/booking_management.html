@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Quản lý booking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/css/provider/booking_management.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/provider/provider-logout.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-box">
+        <h1>TravelTour</h1>
+        <p>Nhà cung cấp tour</p>
+      </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="./dashboard.html" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            Tổng quan
+          </a>
+        </li>
+
+        <li>
+          <a href="./tour_management.html" class="nav-item">
+            <i class="fa-solid fa-map"></i>
+            Quản lý tour
+          </a>
+        </li>
+
+        <li>
+          <a href="./booking_management.html" class="nav-item active">
+            <i class="fa-solid fa-calendar-check"></i>
+            Quản lý booking
+          </a>
+        </li>
+
+        <li>
+          <a href="./guide_assignment.html" class="nav-item">
+            <i class="fa-solid fa-users"></i>
+            Phân công hướng dẫn viên
+          </a>
+        </li>
+
+        <li>
+          <a href="./report.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            Báo cáo doanh thu
+          </a>
+        </li>
+
+        <li>
+          <a href="./profile.html" class="nav-item">
+            <i class="fa-solid fa-building"></i>
+            Hồ sơ nhà cung cấp
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-logout">
+        <button
+          type="button"
+          class="sidebar-logout-btn provider-logout-action"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Đăng xuất
+        </button>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="header">
+        <div class="search-bar-global">
+          <i class="fa-solid fa-search"></i>
+          <input id="globalSearchInput" type="text" placeholder="Tìm kiếm..." />
+        </div>
+
+        <div class="user-area">
+          <div class="bell">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot"></span>
+          </div>
+
+          <div class="profile">
+            <div class="profile-info">
+              <div class="name">Provider</div>
+              <div class="email">provider@traveltour.vn</div>
+            </div>
+            <div class="avatar"><i class="fa-regular fa-user"></i></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <div>
+          <h2>Quản lý booking</h2>
+          <p>Quản lý đặt tour từ khách hàng</p>
+        </div>
+
+        <div class="search-bar-local">
+          <i class="fa-solid fa-search"></i>
+          <input
+            id="bookingCodeSearchInput"
+            type="text"
+            placeholder="Tìm mã booking..."
+          />
+        </div>
+      </div>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="title">Tổng booking</div>
+          <div class="value val-dark" id="totalBookings">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="title">Chờ xác nhận</div>
+          <div class="value val-orange" id="pendingBookings">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="title">Đã xác nhận</div>
+          <div class="value val-green" id="confirmedBookings">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="title">Đã hủy</div>
+          <div class="value val-red" id="cancelledBookings">0</div>
+        </div>
+      </section>
+
+      <section class="table-container">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Mã booking</th>
+                <th>Tên khách hàng</th>
+                <th>Tour</th>
+                <th>Ngày khởi hành</th>
+                <th>Số khách</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="bookingTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal chi tiết booking -->
+    <div id="bookingDetailModal" class="modal-overlay" style="display:none">
+      <div class="modal-box">
+        <div class="modal-header">
+          <div class="modal-title">
+            <i class="fa-solid fa-receipt"></i>
+            Chi tiết booking
+          </div>
+          <button class="modal-close" onclick="closeModal()">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <!-- Mã & trạng thái -->
+          <div class="modal-badge-row">
+            <span class="modal-code" id="mdCode">—</span>
+            <span id="mdBadge"></span>
+          </div>
+
+          <!-- Thông tin 2 cột -->
+          <div class="modal-grid">
+            <div class="modal-section">
+              <div class="modal-section-title">
+                <i class="fa-solid fa-user"></i> Khách hàng
+              </div>
+              <div class="modal-field"><span class="mf-label">Họ tên</span><span id="mdName">—</span></div>
+              <div class="modal-field"><span class="mf-label">Email</span><span id="mdEmail">—</span></div>
+              <div class="modal-field"><span class="mf-label">Điện thoại</span><span id="mdPhone">—</span></div>
+            </div>
+
+            <div class="modal-section">
+              <div class="modal-section-title">
+                <i class="fa-solid fa-map"></i> Tour
+              </div>
+              <div class="modal-field"><span class="mf-label">Tên tour</span><span id="mdTour">—</span></div>
+              <div class="modal-field"><span class="mf-label">Khởi hành</span><span id="mdDepart">—</span></div>
+              <div class="modal-field"><span class="mf-label">Kết thúc</span><span id="mdReturn">—</span></div>
+            </div>
+
+            <div class="modal-section">
+              <div class="modal-section-title">
+                <i class="fa-solid fa-users"></i> Đặt chỗ
+              </div>
+              <div class="modal-field"><span class="mf-label">Số khách</span><span id="mdPax">—</span></div>
+              <div class="modal-field"><span class="mf-label">Tổng tiền</span><span id="mdPrice" class="mf-price">—</span></div>
+              <div class="modal-field"><span class="mf-label">Ngày đặt</span><span id="mdBookedAt">—</span></div>
+            </div>
+
+            <div class="modal-section">
+              <div class="modal-section-title">
+                <i class="fa-solid fa-credit-card"></i> Thanh toán
+              </div>
+              <div class="modal-field"><span class="mf-label">Số tiền</span><span id="mdPayAmount" class="mf-price">—</span></div>
+              <div class="modal-field"><span class="mf-label">Trạng thái</span><span id="mdPayStatus">—</span></div>
+              <div class="modal-field"><span class="mf-label">Phương thức</span><span id="mdPayMethod">—</span></div>
+              <div class="modal-field"><span class="mf-label">Thanh toán lúc</span><span id="mdPaidAt">—</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer" id="mdFooter"></div>
+      </div>
+    </div>
+
+    <script src="../../assets/js/provider/booking_management.js"></script>
+    <script src="../../assets/js/provider/provider-notifications.js"></script>
+    <script src="../../assets/js/provider/provider-logout.js"></script>
+  </body>
+</html>

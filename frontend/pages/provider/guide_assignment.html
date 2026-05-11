@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Phân công hướng dẫn viên</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/css/provider/guide_assignment.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/provider/provider-logout.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-box">
+        <h1>TravelTour</h1>
+        <p>Nhà cung cấp tour</p>
+      </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="./dashboard.html" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            Tổng quan
+          </a>
+        </li>
+
+        <li>
+          <a href="./tour_management.html" class="nav-item">
+            <i class="fa-solid fa-map"></i>
+            Quản lý tour
+          </a>
+        </li>
+
+        <li>
+          <a href="./booking_management.html" class="nav-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            Quản lý booking
+          </a>
+        </li>
+
+        <li>
+          <a href="./guide_assignment.html" class="nav-item active">
+            <i class="fa-solid fa-users"></i>
+            Phân công hướng dẫn viên
+          </a>
+        </li>
+
+        <li>
+          <a href="./report.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            Báo cáo doanh thu
+          </a>
+        </li>
+
+        <li>
+          <a href="./profile.html" class="nav-item">
+            <i class="fa-solid fa-building"></i>
+            Hồ sơ nhà cung cấp
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-logout">
+        <button
+          type="button"
+          class="sidebar-logout-btn provider-logout-action"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="search-bar-global">
+          <i class="fa-solid fa-search"></i>
+          <input id="globalSearchInput" type="text" placeholder="Tìm kiếm..." />
+        </div>
+
+        <div class="user-area">
+          <div class="bell">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot"></span>
+          </div>
+
+          <div class="profile">
+            <div class="profile-info">
+              <div class="name">Provider</div>
+              <div class="email">provider@traveltour.vn</div>
+            </div>
+            <div class="avatar"><i class="fa-regular fa-user"></i></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <h2>Phân công hướng dẫn viên</h2>
+        <p>Quản lý và phân công HDV cho các tour</p>
+      </div>
+
+      <div class="content-grid">
+        <section class="col-card">
+          <div class="col-title">
+            <i class="fa-regular fa-user"></i>
+            <span>Danh sách HDV</span>
+          </div>
+
+          <div id="guideList" class="guide-list"></div>
+        </section>
+
+        <section class="col-card">
+          <div class="col-title">
+            <i class="fa-regular fa-calendar-check"></i>
+            <span>Tour sắp khởi hành</span>
+          </div>
+
+          <div id="tourList" class="tour-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../../assets/js/provider/guide_assignment.js"></script>
+    <script src="../../assets/js/provider/provider-notifications.js"></script>
+    <script src="../../assets/js/provider/provider-logout.js"></script>
+  </body>
+</html>

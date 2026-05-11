@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Đặt tour - Thông tin khách hàng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/tours/ttkhachhang.css" />
+  </head>
+  <body class="booking-page has-public-navbar">
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a
+          href="../../index.html"
+          class="logo"
+          aria-label="TravelTour — về trang chủ"
+          >TravelTour</a
+        >
+
+        <ul class="nav-menu">
+          <li><a href="../../index.html">Trang chủ</a></li>
+          <li><a href="../../index.html#about">Giới thiệu</a></li>
+          <li><a href="./dstour.html">Điểm đến</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button type="button" class="btn btn-primary">Đặt tour</button>
+          <button type="button" class="btn btn-outline" id="btnLogout">
+            Đăng xuất
+          </button>
+          <a href="../customer/customer.html" class="user-icon">👤</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="booking-main">
+      <div class="booking-shell">
+        <nav class="booking-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Trang chủ</a>
+          <span>&gt;</span>
+          <a href="./dstour.html">Tour du lịch</a>
+          <span>&gt;</span>
+          <a href="./chitiet.html">Chi tiết tour</a>
+          <span>&gt;</span>
+          <span>Đặt tour</span>
+        </nav>
+
+        <section class="booking-steps" aria-label="Quy trình đặt tour">
+          <article class="booking-step booking-step--active">
+            <span class="booking-step__bubble">1</span>
+            <span class="booking-step__label">Thông tin khách hàng</span>
+          </article>
+          <span class="booking-step__line" aria-hidden="true"></span>
+          <article class="booking-step">
+            <span class="booking-step__bubble">2</span>
+            <span class="booking-step__label">Tùy chọn tour</span>
+          </article>
+          <span class="booking-step__line" aria-hidden="true"></span>
+          <article class="booking-step">
+            <span class="booking-step__bubble">3</span>
+            <span class="booking-step__label">Thanh toán</span>
+          </article>
+        </section>
+
+        <div class="booking-layout">
+          <div class="booking-content">
+            <section class="tour-card">
+              <div class="tour-card__media">
+                <img
+                  src="../../assets/images/tours/chitiet/hero-vinh-ha-long.png"
+                  alt="Tour Vịnh Hạ Long"
+                />
+              </div>
+              <div class="tour-card__body">
+                <h1 id="tour-title">Đang tải tên tour...</h1>
+
+                <ul class="tour-card__meta">
+                  <li>
+                    <span class="meta-icon meta-icon--pin"></span>
+                    <span id="tour-location">Đang tải địa điểm...</span>
+                  </li>
+                  <li>
+                    <span class="meta-icon meta-icon--calendar"></span>
+                    <span id="tour-departure-date">Đang tải ngày...</span>
+                  </li>
+                  <li>
+                    <span class="meta-icon meta-icon--guest"></span>
+                    <span id="tour-total-guests">0 khách</span>
+                  </li>
+                </ul>
+
+                <div class="tour-card__pricing">
+                  <div class="tour-card__pricing-row">
+                    <span>Giá mỗi người:</span>
+                    <strong id="tour-price-per-person">0 ₫</strong>
+                  </div>
+                  <div
+                    class="tour-card__pricing-row tour-card__pricing-row--total"
+                  >
+                    <span>Tổng cộng:</span>
+                    <strong id="tour-total-price">0 ₫</strong>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="booking-panel">
+              <h2>Thông tin người đặt tour</h2>
+              <form class="booking-form" id="booking-form" novalidate>
+                <div class="form-field">
+                  <label for="booker-name">Họ và tên <span>*</span></label>
+                  <input
+                    id="booker-name"
+                    name="booker-name"
+                    type="text"
+                    maxlength="80"
+                    autocomplete="name"
+                    placeholder="Ví dụ: Nguyễn Văn A (2–80 ký tự, chỉ chữ và khoảng trắng)"
+                    title="2–80 ký tự, chỉ chữ Latin/tiếng Việt và khoảng trắng"
+                    required
+                  />
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="booker-email">Email <span>*</span></label>
+                    <input
+                      id="booker-email"
+                      name="booker-email"
+                      type="email"
+                      placeholder="example@email.com"
+                      required
+                    />
+                  </div>
+                  <div class="form-field">
+                    <label for="booker-phone"
+                      >Số điện thoại <span>*</span></label
+                    >
+                    <input
+                      id="booker-phone"
+                      name="booker-phone"
+                      type="tel"
+                      maxlength="13"
+                      pattern="(?:0|\+84)(?:3|5|7|8|9)\d{8}"
+                      title="0912345678 hoặc +84912345678"
+                      placeholder="0912345678 hoặc +84912345678"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="booker-country">Quốc tịch <span>*</span></label>
+                  <select id="booker-country" name="booker-country" required>
+                    <option value="">Chọn quốc tịch</option>
+                    <option value="vn">Việt Nam</option>
+                    <option value="kr">Hàn Quốc</option>
+                    <option value="jp">Nhật Bản</option>
+                    <option value="us">Hoa Kỳ</option>
+                    <option value="other">Khác</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="booker-note">Yêu cầu đặc biệt</label>
+                  <textarea
+                    id="booker-note"
+                    name="booker-note"
+                    rows="4"
+                    placeholder="Nếu bạn có bất kỳ yêu cầu đặc biệt nào, vui lòng cho chúng tôi biết..."
+                  ></textarea>
+                </div>
+              </form>
+            </section>
+
+            <section class="booking-panel booking-panel--guests">
+              <div class="booking-panel__header">
+                <h2>Thông tin khách tham gia</h2>
+                <button class="add-guest-button js-add-guest" type="button">
+                  <span>+</span>
+                  <span>Thêm khách</span>
+                </button>
+              </div>
+
+              <div class="guest-list" id="guest-list">
+                <article class="guest-card" data-guest-index="1">
+                  <div class="guest-card__title">
+                    <span class="meta-icon meta-icon--guest"></span>
+                    <h3>Khách #1</h3>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="guest-name-1">Họ và tên <span>*</span></label>
+                    <input
+                      id="guest-name-1"
+                      name="guest-name-1"
+                      type="text"
+                      maxlength="80"
+                      placeholder="Ví dụ: Nguyễn Văn A"
+                      title="2–80 ký tự, chỉ chữ Latin/tiếng Việt và khoảng trắng"
+                      required
+                      form="booking-form"
+                    />
+                  </div>
+
+                  <div class="form-grid">
+                    <div class="form-field">
+                      <label for="guest-birthday-1"
+                        >Ngày sinh <span>*</span></label
+                      >
+                      <input
+                        id="guest-birthday-1"
+                        name="guest-birthday-1"
+                        type="text"
+                        maxlength="10"
+                        inputmode="numeric"
+                        placeholder="15/08/1998"
+                        title="Định dạng dd/mm/yyyy; không quá hôm nay; tuổi 0–120"
+                        required
+                        form="booking-form"
+                      />
+                    </div>
+                    <div class="form-field">
+                      <label for="guest-gender-1"
+                        >Giới tính <span>*</span></label
+                      >
+                      <select
+                        id="guest-gender-1"
+                        name="guest-gender-1"
+                        required
+                        form="booking-form"
+                      >
+                        <option value="">Chọn giới tính</option>
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                        <option value="other">Khác</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="guest-phone-1"
+                      >Số điện thoại <span>*</span></label
+                    >
+                    <input
+                      id="guest-phone-1"
+                      name="guest-phone-1"
+                      type="tel"
+                      inputmode="numeric"
+                      maxlength="13"
+                      pattern="(?:0|\+84)(?:3|5|7|8|9)\d{8}"
+                      title="Số điện thoại Việt Nam, ví dụ: 0912345678 hoặc +84912345678"
+                      placeholder="VD: 0912345678 hoặc +84912345678"
+                      required
+                      form="booking-form"
+                    />
+                  </div>
+                  <div class="form-field">
+                    <label for="guest-id-1"
+                      >Số CCCD <span>*</span></label
+                    >
+                    <input
+                      id="guest-id-1"
+                      name="guest-id-1"
+                      type="text"
+                      inputmode="numeric"
+                      maxlength="12"
+                      pattern="\d{12}"
+                      title="Đúng 12 chữ số"
+                      placeholder="012345678901"
+                      required
+                      form="booking-form"
+                    />
+                  </div>
+                </article>
+              </div>
+
+              <div class="guest-import-box" aria-label="Biểu mẫu và import Excel">
+                <p class="guest-import-box__text">
+                  Mẫu danh sách khách (Google Sheet):
+                  <a
+                    href="https://docs.google.com/spreadsheets/d/1R8-UWNKpt26NCGEb5ZNGbgw5XwZtV0Tq/edit?gid=1095513870#gid=1095513870"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="guest-import-box__link"
+                    >https://docs.google.com/spreadsheets/d/1R8-UWNKpt26NCGEb5ZNGbgw5XwZtV0Tq/edit?gid=1095513870#gid=1095513870</a
+                  >
+                </p>
+                <div class="guest-import-box__actions">
+                  <input
+                    type="file"
+                    id="guest-excel-input"
+                    class="guest-excel-input"
+                    accept=".xlsx,.xls,.xlsm,.csv,.tsv,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/octet-stream"
+                    hidden
+                  />
+                  <button
+                    type="button"
+                    class="add-guest-button js-import-guest-excel"
+                  >
+                    <span>↑</span>
+                    <span>Import file Excel</span>
+                  </button>
+                </div>
+                <p class="guest-import-box__note">
+                  Tải từ Google Sheet: mở bảng → <strong>Tệp</strong> →
+                  <strong>Tải xuống</strong> → <strong>Microsoft Excel (.xlsx)</strong>
+                  (không chọn PDF/HTML; file shortcut trên Drive không dùng được).
+                  Cột: Họ và tên, Ngày sinh (dd/mm/yyyy), Giới tính (Nam/Nữ/Khác), Số
+                  điện thoại (0… hoặc +84…), Số CCCD (12 số).
+                </p>
+              </div>
+            </section>
+
+            <div class="booking-actions">
+              <button
+                class="action-button action-button--ghost js-back-tour"
+                type="button"
+              >
+                <span>&larr;</span>
+                <span>Quay lại</span>
+              </button>
+              <button
+                class="action-button action-button--primary js-next-step"
+                type="submit"
+                form="booking-form"
+              >
+                <span>Tiếp tục</span>
+                <span>&rsaquo;</span>
+              </button>
+            </div>
+
+            <a class="back-link" href="./chitiet.html">Quay lại trang tour</a>
+          </div>
+
+          <aside class="summary-card">
+            <h2>Tổng kết đặt tour</h2>
+            <div class="summary-card__rows">
+              <div class="summary-card__row">
+                <span id="summary-guest-line">Giá tour × 1 khách</span>
+                <strong id="summary-tour-price">8.500.000 ₫</strong>
+              </div>
+              <div class="summary-card__row">
+                <span>Phí dịch vụ</span>
+                <strong id="summary-service-fee">500.000 ₫</strong>
+              </div>
+            </div>
+            <div class="summary-card__total">
+              <span>Tổng thanh toán</span>
+              <strong id="summary-grand-total">9.000.000 ₫</strong>
+            </div>
+            <div class="summary-card__note">
+              <span class="summary-card__note-icon">i</span>  
+              <p>
+                Lưu ý: Bạn sẽ nhận được email xác nhận ngay sau khi hoàn tất đặt
+                tour.
+              </p>
+            </div>
+            <div class="summary-card__policy">
+              <div class="summary-card__policy-title">
+                📄 Chính sách hủy tour
+              </div>
+
+              <ul class="summary-card__policy-list">
+                <li>- Hủy trước 7 ngày: hoàn 100% giá tour</li>
+                <li>- Hủy trước 3 - 6 ngày: hoàn 50% giá tour</li>
+                <li>- Hủy trước 1 - 2 ngày: hoàn 30% giá tour</li>
+                <li>- Hủy trong ngày khởi hành: không hoàn phí</li>
+                <li class="policy-note-line">
+                  * Yêu cầu hủy tour chỉ được ghi nhận khi thực hiện qua hệ
+                  thống hoặc tổng đài hỗ trợ
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="booking-footer">
+      <div class="booking-footer__inner">
+        <div class="booking-footer__column">
+          <h3>Về TravelTour</h3>
+          <a href="#">Giới thiệu</a>
+          <a href="#">Liên hệ</a>
+          <a href="#">Tuyển dụng</a>
+        </div>
+        <div class="booking-footer__column">
+          <h3>Hỗ trợ</h3>
+          <a href="#">Câu hỏi thường gặp</a>
+          <a href="#">Chính sách hoàn tiền</a>
+          <a href="#">Hướng dẫn đặt tour</a>
+        </div>
+        <div class="booking-footer__column">
+          <h3>Điều khoản</h3>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Quy định chung</a>
+        </div>
+        <div class="booking-footer__column">
+          <h3>Kết nối với chúng tôi</h3>
+          <p>Email: info@traveltour.vn</p>
+          <p>Hotline: 1900 1234</p>
+          <p>Giờ làm việc: 8:00 - 20:00</p>
+        </div>
+      </div>
+      <div class="booking-footer__bottom">
+        © 2026 TravelTour. Bản quyền thuộc về TravelTour Vietnam.
+      </div>
+    </footer>
+
+    <template id="guest-card-template">
+      <article class="guest-card" data-guest-index="">
+        <div class="guest-card__title">
+          <span class="meta-icon meta-icon--guest"></span>
+          <h3></h3>
+        </div>
+        <button class="guest-card__remove" type="button">Xóa</button>
+        <div class="form-field">
+          <label>Họ và tên <span>*</span></label>
+          <input
+            type="text"
+            maxlength="80"
+            placeholder="Ví dụ: Nguyễn Văn A"
+            title="2–80 ký tự, chỉ chữ Latin/tiếng Việt và khoảng trắng"
+            required
+            form="booking-form"
+          />
+        </div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Ngày sinh <span>*</span></label>
+            <input
+              type="text"
+              maxlength="10"
+              inputmode="numeric"
+              placeholder="15/08/1998"
+              title="Định dạng dd/mm/yyyy; tuổi 0–120"
+              required
+              form="booking-form"
+            />
+          </div>
+          <div class="form-field">
+            <label>Giới tính <span>*</span></label>
+            <select required form="booking-form">
+              <option value="">Chọn giới tính</option>
+              <option value="male">Nam</option>
+              <option value="female">Nữ</option>
+              <option value="other">Khác</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Số điện thoại <span>*</span></label>
+          <input
+            type="tel"
+            inputmode="numeric"
+            maxlength="13"
+            pattern="(?:0|\+84)(?:3|5|7|8|9)\d{8}"
+            title="Số điện thoại Việt Nam, ví dụ: 0912345678 hoặc +84912345678"
+            placeholder="VD: 0912345678 hoặc +84912345678"
+            required
+            form="booking-form"
+          />
+        </div>
+        <div class="form-field">
+          <label>Số CCCD <span>*</span></label>
+          <input
+            type="text"
+            inputmode="numeric"
+            maxlength="12"
+            pattern="\d{12}"
+            placeholder="Nhập 12 số CCCD"
+            required
+            form="booking-form"
+          />
+        </div>
+      </article>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="../../assets/js/tours/ttkhachhang.js"></script>
+  </body>
+</html>

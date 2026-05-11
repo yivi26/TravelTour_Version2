@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Hồ sơ nhà cung cấp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/provider/profile.css" />
+    <link rel="stylesheet" href="../../assets/css/provider/provider-logout.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-box">
+        <h1>TravelTour</h1>
+        <p>Nhà cung cấp tour</p>
+      </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="./dashboard.html" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            Tổng quan
+          </a>
+        </li>
+
+        <li>
+          <a href="./tour_management.html" class="nav-item">
+            <i class="fa-solid fa-map"></i>
+            Quản lý tour
+          </a>
+        </li>
+
+        <li>
+          <a href="./booking_management.html" class="nav-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            Quản lý booking
+          </a>
+        </li>
+
+        <li>
+          <a href="./guide_assignment.html" class="nav-item">
+            <i class="fa-solid fa-users"></i>
+            Phân công hướng dẫn viên
+          </a>
+        </li>
+
+        <li>
+          <a href="./report.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            Báo cáo doanh thu
+          </a>
+        </li>
+
+        <li>
+          <a href="./profile.html" class="nav-item active">
+            <i class="fa-solid fa-building"></i>
+            Hồ sơ nhà cung cấp
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-logout">
+        <button
+          type="button"
+          class="sidebar-logout-btn provider-logout-action"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="search-bar-global">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" placeholder="Tìm kiếm..." />
+        </div>
+        <div class="user-area">
+          <div class="bell">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot"></span>
+          </div>
+          <div class="profile">
+            <div class="profile-info">
+              <div class="name" id="headerUserName">Provider</div>
+              <div class="email" id="headerUserEmail">provider@traveltour.vn</div>
+            </div>
+            <div class="avatar"><i class="fa-regular fa-user"></i></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <h2>Hồ sơ nhà cung cấp</h2>
+        <p>Quản lý thông tin công ty và nhà cung cấp tour</p>
+      </div>
+
+      <div class="profile-grid">
+        <div class="left-col">
+          <div class="card profile-summary">
+            <div class="ps-logo" id="providerLogoPreview">
+              <i class="fa-solid fa-building"></i>
+            </div>
+
+            <input
+              type="file"
+              id="logoInput"
+              accept="image/*"
+              hidden
+            />
+
+            <div class="ps-name" id="summaryCompanyName">Tên công ty</div>
+            <div class="ps-type" id="summaryProviderType">Nhà cung cấp tour du lịch</div>
+
+            <div class="ps-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <span id="summaryRating">(0.0/5.0)</span>
+            </div>
+
+            <button class="btn-change-logo" id="changeLogoBtn">
+              <i class="fa-solid fa-upload"></i> Thay đổi logo
+            </button>
+
+            <div class="ps-stats">
+              <div class="ps-stat-row">
+                <span class="ps-stat-label">Tổng tour</span>
+                <span class="ps-stat-value" id="summaryTotalTours">0 tour</span>
+              </div>
+              <div class="ps-stat-row">
+                <span class="ps-stat-label">Đánh giá</span>
+                <span class="ps-stat-value" id="summaryTotalReviews">0 đánh giá</span>
+              </div>
+              <div class="ps-stat-row">
+                <span class="ps-stat-label">Khách hàng</span>
+                <span class="ps-stat-value" id="summaryTotalCustomers">0 khách</span>
+              </div>
+              <div class="ps-stat-row">
+                <span class="ps-stat-label">Thành viên từ</span>
+                <span class="ps-stat-value" id="summaryMemberSince">--/----</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cert-title">
+              <i class="fa-solid fa-award"></i>
+              <span>Chứng nhận</span>
+            </div>
+
+            <div class="cert-list" id="certificateList">
+              <div class="cert-item">
+                <div class="cert-icon"><i class="fa-solid fa-ribbon"></i></div>
+                <div class="cert-info">
+                  <div class="c-name">Chưa có dữ liệu chứng nhận</div>
+                  <div class="c-status">Đang cập nhật</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-col">
+          <div class="card">
+            <div class="form-section-title">Thông tin công ty</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Tên công ty</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="companyName"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Tên viết tắt</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="companyShortName"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Mã số thuế</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="taxCode"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Giấy phép kinh doanh</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="businessLicense"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">Giới thiệu công ty</label>
+                <textarea
+                  class="form-control"
+                  id="companyDescription"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="form-section-title">Thông tin liên hệ</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="fa-solid fa-phone"></i> Số điện thoại
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="fa-solid fa-headset"></i> Hotline
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="hotline"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">
+                  <i class="fa-regular fa-envelope"></i> Email liên hệ
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="contactEmail"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">
+                  <i class="fa-solid fa-location-dot"></i> Địa chỉ trụ sở
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label">
+                
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="form-section-title">Thông tin thanh toán</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Ngân hàng</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bankName"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Chi nhánh</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bankBranch"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Số tài khoản</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bankAccountNumber"
+                  value=""
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Chủ tài khoản</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bankAccountName"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-cancel" id="cancelBtn">Hủy thay đổi</button>
+            <button class="btn-save" id="saveBtn">
+              <i class="fa-solid fa-save"></i> Lưu thông tin
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../../assets/js/provider/profile.js"></script>
+    <script src="../../assets/js/provider/provider-notifications.js"></script>
+    <script src="../../assets/js/provider/provider-logout.js"></script>
+  </body>
+</html>

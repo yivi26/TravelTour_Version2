@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin,vietnamese");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #1e2939;
+  background: #f9fafb;
+  line-height: 1.5;
+}
+
+.sidebar-logout {
+  margin: 16px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ef4444;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sidebar-logout:hover {
+  background: #dc2626;
+}
+
+.lock-icon {
+  color: #ef4444 !important;
+}
+
+.btn-lock i {
+  color: #ef4444;
+}

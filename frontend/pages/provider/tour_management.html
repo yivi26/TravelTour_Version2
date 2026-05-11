@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Quản lý tour</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/css/provider/tour_management.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/provider/provider-logout.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-box">
+        <h1>TravelTour</h1>
+        <p>Nhà cung cấp tour</p>
+      </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="./dashboard.html" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            Tổng quan
+          </a>
+        </li>
+
+        <li>
+          <a href="./tour_management.html" class="nav-item active">
+            <i class="fa-solid fa-map"></i>
+            Quản lý tour
+          </a>
+        </li>
+
+        <li>
+          <a href="./booking_management.html" class="nav-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            Quản lý booking
+          </a>
+        </li>
+
+        <li>
+          <a href="./guide_assignment.html" class="nav-item">
+            <i class="fa-solid fa-users"></i>
+            Phân công hướng dẫn viên
+          </a>
+        </li>
+
+        <li>
+          <a href="./report.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            Báo cáo doanh thu
+          </a>
+        </li>
+
+        <li>
+          <a href="./profile.html" class="nav-item">
+            <i class="fa-solid fa-building"></i>
+            Hồ sơ nhà cung cấp
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-logout">
+        <button
+          type="button"
+          class="sidebar-logout-btn provider-logout-action"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="search-bar">
+          <i class="fa-solid fa-search"></i>
+          <input id="searchInput" type="text" placeholder="Tìm kiếm..." />
+        </div>
+
+        <div class="user-area">
+          <div class="bell">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot"></span>
+          </div>
+
+          <div class="profile">
+            <div class="profile-info">
+              <div class="name">Provider</div>
+              <div class="email">provider@traveltour.vn</div>
+            </div>
+            <div class="avatar"><i class="fa-regular fa-user"></i></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <div>
+          <h2>Quản lý tour</h2>
+          <p>Quản lý danh sách tour du lịch</p>
+        </div>
+
+        <button class="btn-primary" id="createTourBtn">
+          <i class="fa-solid fa-plus"></i>
+          <span>Tạo tour mới</span>
+        </button>
+      </div>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="title">Tổng tour</div>
+          <div class="value val-dark" id="totalTours">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="title">Đang hoạt động</div>
+          <div class="value val-green" id="activeTours">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="title">Đã đầy chỗ</div>
+          <div class="value val-orange" id="fullTours">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="title">Ngưng hoạt động</div>
+          <div class="value val-dark" id="stoppedTours">0</div>
+        </div>
+      </section>
+
+      <section class="table-container">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tên tour</th>
+                <th>Điểm đến</th>
+                <th>Giá</th>
+                <th>Số chỗ</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="tourTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="../../assets/js/provider/tour_management.js"></script>
+    <script src="../../assets/js/provider/provider-notifications.js"></script>
+    <script src="../../assets/js/provider/provider-logout.js"></script>
+  </body>
+</html>

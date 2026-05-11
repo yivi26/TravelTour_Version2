@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Quản lý người dùng</title>
+    <link rel="stylesheet" href="../../assets/css/admin/admin-base.css" />
+    <link rel="stylesheet" href="../../assets/css/admin/qlinguoidung.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-name">TravelTour</div>
+          <div class="brand-sub">Admin Dashboard</div>
+        </div>
+        <nav id="sidebarNav" class="nav"></nav>
+        <button id="logoutBtn" class="sidebar-logout" type="button">Đăng xuất</button>
+        <div class="sidebar-footer">© 2026 TravelTour</div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <h1>Quản lý người dùng</h1>
+          <div class="top-actions">
+            <label class="search">
+              <input
+                type="search"
+                placeholder="Tìm kiếm..."
+                aria-label="Tìm kiếm"
+              />
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.333 12.667a5.333 5.333 0 1 0 0-10.667 5.333 5.333 0 0 0 0 10.667Z"
+                  stroke="#99A1AF"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m14 14-2.867-2.867"
+                  stroke="#99A1AF"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </label>
+            <button class="bell" type="button" aria-label="Thông báo">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.556 17.5c.146.254.356.464.61.61.253.147.54.223.833.223.293 0 .58-.076.834-.223.253-.146.464-.356.61-.61"
+                  stroke="#4A5565"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2.718 12.772a.96.96 0 0 0-.147.897c.066.148.172.274.308.362.135.088.294.135.455.136h13.333c.161 0 .319-.047.455-.135a.965.965 0 0 0 .308-.362.96.96 0 0 0-.147-.898C16.175 11.63 15 10.416 15 6.667c0-1.326-.527-2.598-1.465-3.535C12.598 2.194 11.326 1.667 10 1.667s-2.598.527-3.535 1.465C5.527 4.069 5 5.341 5 6.667c0 3.75-1.176 4.964-2.282 6.105Z"
+                  stroke="#4A5565"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="dot"></span>
+            </button>
+            <div class="user">
+              <div class="avatar user-avatar">AD</div>
+              <div class="user-info">
+                <div class="name">Admin User</div>
+                <div class="email">admin@traveltour.vn</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="header-row">
+          <div class="header-sub">Quản lý tất cả người dùng trong hệ thống</div>
+          <div class="actions">
+            <button class="btn" type="button">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.667 13.333c0 .124.034.246.099.351.065.106.158.191.27.246l1.333.667a.667.667 0 0 0 .951-.6V9.333c0-.33.123-.649.345-.894l4.815-5.326a.417.417 0 0 0-.045-.596.416.416 0 0 0-.271-.1H2c-.17 0-.334.068-.455.19a.417.417 0 0 0-.09.458L7.27 8.439c.222.245.345.564.345.894v3.999Z"
+                  stroke="#0A0A0A"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Lọc
+            </button>
+            <button class="btn primary" type="button">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 10v2.667c0 .353-.14.692-.39.942a1.333 1.333 0 0 1-.943.391H3.333a1.333 1.333 0 0 1-.942-.39 1.333 1.333 0 0 1-.391-.943V10"
+                  stroke="white"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m4.667 6.667 3.333 3.333 3.333-3.333"
+                  stroke="white"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 10V2"
+                  stroke="white"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Xuất Excel
+            </button>
+          </div>
+        </div>
+
+        <section class="stats-grid" id="statsGrid"></section>
+
+        <section class="panel">
+          <div class="table-wrap">
+            <table class="table" id="userTable">
+              <thead>
+                <tr>
+                  <th>Tên người dùng</th>
+                  <th>Email</th>
+                  <th>Vai trò</th>
+                  <th>Trạng thái</th>
+                  <th>Hành động</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <div id="pagingText">Hiển thị 1-8 trong 12,458 người dùng</div>
+            <div class="pagination" id="pagination"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../../assets/js/admin/qlinguoidung.js"></script>
+    <script src="../../assets/js/admin/thongbao.js"></script>
+    <script src="../../assets/js/admin/logout.js"></script>
+    <script>
+      (function () {
+        const DEFAULT_NAV = [
+          { label: "Tổng quan", href: "tongquan.html" },
+          { label: "Quản lý người dùng", href: "qlinguoidung.html", active: true },
+          { label: "Quản lý nhà cung cấp tour", href: "qlinhacungcap.html" },
+          { label: "Quản lý hướng dẫn viên", href: "hdv.html" },
+          { label: "Quản lý tour", href: "qlitour.html" },
+          { label: "Quản lý booking", href: "qlibooking.html" },
+          { label: "Quản lý đánh giá", href: "qlidanhgia.html" },
+          { label: "Báo cáo & thống kê", href: "baocao.html" },
+          { label: "Cài đặt hệ thống", href: "caidat.html" }
+        ];
+
+        const DEFAULT_USER = {
+          name: "Admin User",
+          email: "admin@traveltour.vn",
+          initials: "AD"
+        };
+
+        const API_LIST = "/api/admin/users";
+
+        function escapeHtml(str) {
+          return String(str ?? "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+        }
+
+        function debounce(fn, wait = 350) {
+          let t = null;
+          return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), wait);
+          };
+        }
+
+        async function fetchUsers({ page = 1, pageSize = 8, q = "" } = {}) {
+          const url = new URL(API_LIST, window.location.origin);
+          url.searchParams.set("page", String(page));
+          url.searchParams.set("pageSize", String(pageSize));
+          if (q) url.searchParams.set("q", String(q));
+
+          const res = await fetch(url.toString(), { method: "GET" });
+          const json = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(json?.message || "Không tải được danh sách người dùng");
+          return json?.data || {};
+        }
+
+        async function patchUserActive(id, is_active) {
+          const res = await fetch(`/api/admin/users/${encodeURIComponent(String(id))}/active`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ is_active })
+          });
+          const json = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(json?.message || "Không cập nhật được trạng thái");
+          return json?.data;
+        }
+
+        const state = {
+          page: 1,
+          pageSize: 8,
+          q: ""
+        };
+
+        function render(data) {
+          const sidebarNav = document.getElementById("sidebarNav");
+          if (sidebarNav) {
+            const navItems = Array.isArray(data.nav) ? data.nav : [];
+            const iconKeys = [
+              "grid",
+              "user",
+              "building",
+              "compass",
+              "map",
+              "calendar",
+              "star",
+              "chart",
+              "settings"
+            ];
+            sidebarNav.innerHTML = navItems
+              .map((item, index) => {
+                const iconKey = iconKeys[index] || "grid";
+                return `<a class="nav-item ${item.active ? "active" : ""}" href="${item.href || "#"}">
+              <span class="nav-icon">${navIcons[iconKey] || navIcons.grid}</span>
+              <span>${item.label || ""}</span>
+            </a>`;
+              })
+              .join("");
+            const current = window.location.pathname.split("/").pop();
+            sidebarNav.querySelectorAll(".nav-item").forEach((a) => {
+              const hrefFile = (a.getAttribute("href") || "").split("/").pop();
+              a.classList.toggle("active", hrefFile === current);
+            });
+          }
+
+          const user = data.user || {};
+          const avatarEl = document.querySelector(".user-avatar");
+          const nameEl = document.querySelector(".user-info .name");
+          const emailEl = document.querySelector(".user-info .email");
+          if (avatarEl && user.initials) avatarEl.textContent = user.initials;
+          if (nameEl && user.name) nameEl.textContent = user.name;
+          if (emailEl && user.email) emailEl.textContent = user.email;
+
+          const statsGrid = document.getElementById("statsGrid");
+          if (statsGrid && Array.isArray(data.stats)) {
+            statsGrid.innerHTML = data.stats
+              .map((item) => {
+                const pillClass = item.badge ? `pill ${item.badge}` : "";
+                const badgeText =
+                  item.badge === "customer"
+                    ? "Khách hàng"
+                    : item.badge === "supplier"
+                      ? "Nhà cung cấp"
+                      : item.badge === "guide"
+                        ? "Hướng dẫn viên"
+                        : "";
+                return `<div class="stat-card">
+              <div class="label">${item.label || ""}</div>
+              <div class="value">${item.value || ""}</div>
+              ${item.badge ? `<span class="${pillClass}">${badgeText}</span>` : ""}
+            </div>`;
+              })
+              .join("");
+          }
+
+          const tbody = document.querySelector("#userTable tbody");
+          if (tbody && Array.isArray(data.users)) {
+            tbody.innerHTML = data.users
+              .map((u) => {
+                const initials = (u.name || "")
+                  .split(" ")
+                  .filter(Boolean)
+                  .map((w) => w[0])
+                  .join("")
+                  .slice(0, 2)
+                  .toUpperCase();
+                const userId = u.id ?? "";
+                const isActive = u.statusKey === "active";
+                const lockTitle = isActive ? "Khóa tài khoản" : "Mở khóa tài khoản";
+                const lockStroke = isActive ? "#E7000B" : "#00A63E";
+                return `<tr data-user-id="${escapeHtml(userId)}">
+              <td>
+                <div class="name-cell">
+                  <div class="avatar">${initials}</div>
+                  <div>${escapeHtml(u.name || "")}</div>
+                </div>
+              </td>
+              <td>${escapeHtml(u.email || "")}</td>
+              <td><span class="role-pill role ${u.roleKey || ""}">${u.role || ""}</span></td>
+              <td><span class="status-pill status ${u.statusKey || ""}">${u.status || ""}</span></td>
+              <td>
+                <div class="actions-table">
+                  <button class="icon-btn" type="button" aria-label="Xem chi tiết">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.375 8.232c-.056-.15-.056-.315 0-.464C1.916 6.456 2.834 5.334 4.014 4.545 5.193 3.755 6.581 3.334 8 3.334c1.42 0 2.807.421 3.986 1.211 1.18.79 2.099 1.912 2.64 3.224.056.15.056.315 0 .465-.541 1.312-1.46 2.434-2.64 3.223C10.807 12.245 9.419 12.667 8 12.667c-1.42 0-2.807-.422-3.986-1.212-1.18-.789-2.098-1.91-2.64-3.223Z" stroke="#155DFC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="#155DFC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="icon-btn js-toggle-lock" type="button" data-is-active="${isActive ? "1" : "0"}" aria-label="${lockTitle}" title="${lockTitle}">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.667 7.333H3.333C2.597 7.333 2 7.93 2 8.667v4.666C2 14.07 2.597 14.667 3.333 14.667h9.334C13.403 14.667 14 14.07 14 13.333V8.667c0-.737-.597-1.334-1.333-1.334Z" stroke="${lockStroke}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M4.667 7.333V4.667c0-.884.351-1.732.976-2.357A3.333 3.333 0 0 1 8 1.333c.884 0 1.732.351 2.357.977.625.625.976 1.473.976 2.357v2.666" stroke="${lockStroke}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </td>
+            </tr>`;
+              })
+              .join("");
+          }
+
+          const pagingTextEl = document.getElementById("pagingText");
+          if (pagingTextEl && data.paging?.text) pagingTextEl.textContent = data.paging.text;
+
+          const paginationEl = document.getElementById("pagination");
+          if (paginationEl && data.paging?.pages) {
+            const pages = data.paging.pages;
+            const buttons = [
+              `<button class="page-btn" type="button" data-page="prev">Trước</button>`,
+              ...pages.map(
+                (p) =>
+                  `<button class="page-btn ${p === data.paging.page ? "active" : ""}" type="button" data-page="${p}">${p}</button>`
+              ),
+              `<button class="page-btn" type="button" data-page="next">Sau</button>`
+            ];
+            paginationEl.innerHTML = buttons.join("");
+          }
+        }
+
+        async function loadAndRender() {
+          const payload = await fetchUsers(state);
+          const data = {
+            nav: DEFAULT_NAV,
+            user: DEFAULT_USER,
+            ...payload
+          };
+          render(data);
+        }
+
+        function bind() {
+          const searchInput = document.querySelector(".search input[type='search']");
+          if (searchInput) {
+            const onSearch = debounce(() => {
+              state.q = String(searchInput.value || "").trim();
+              state.page = 1;
+              loadAndRender().catch((e) => console.error(e));
+            }, 400);
+            searchInput.addEventListener("input", onSearch);
+          }
+
+          const paginationEl = document.getElementById("pagination");
+          if (paginationEl) {
+            paginationEl.addEventListener("click", (e) => {
+              const btn = e.target.closest(".page-btn");
+              if (!btn) return;
+              const val = btn.getAttribute("data-page");
+              if (!val) return;
+              if (val === "prev") state.page = Math.max(1, state.page - 1);
+              else if (val === "next") state.page = state.page + 1;
+              else state.page = Number(val) || 1;
+              loadAndRender().catch((err) => console.error(err));
+            });
+          }
+
+          const tbody = document.querySelector("#userTable tbody");
+          if (tbody) {
+            tbody.addEventListener("click", async (e) => {
+              const lockBtn = e.target.closest(".js-toggle-lock");
+              if (!lockBtn) return;
+              const tr = lockBtn.closest("tr");
+              const userId = tr?.getAttribute("data-user-id");
+              if (!userId) return;
+
+              const isActive = lockBtn.getAttribute("data-is-active") === "1";
+              try {
+                await patchUserActive(userId, !isActive);
+                await loadAndRender();
+              } catch (err) {
+                console.error(err);
+                alert(err?.message || "Không cập nhật được trạng thái");
+              }
+            });
+          }
+        }
+
+        const navIcons = {
+          grid: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 2.5H3.333A.833.833 0 0 0 2.5 3.333v5.834c0 .46.373.833.833.833H7.5c.46 0 .833-.373.833-.833V3.333A.833.833 0 0 0 7.5 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.667 2.5H12.5a.833.833 0 0 0-.833.833v2.5c0 .46.373.834.833.834h4.167c.46 0 .833-.373.833-.834v-2.5a.833.833 0 0 0-.833-.833Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.667 10h-4.167a.833.833 0 0 0-.833.833v5.834c0 .46.373.833.833.833h4.167c.46 0 .833-.373.833-.833v-5.834A.833.833 0 0 0 16.667 10Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 13.333H3.333A.833.833 0 0 0 2.5 14.167v2.5c0 .46.373.833.833.833H7.5c.46 0 .833-.373.833-.833v-2.5a.833.833 0 0 0-.833-.834Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          user: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 9.167A3.333 3.333 0 1 0 7.5 2.5a3.333 3.333 0 0 0 0 6.667Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.333 17.5V15.833c0-.884-.351-1.732-.976-2.357a3.333 3.333 0 0 0-2.357-.976H5a3.333 3.333 0 0 0-2.357.976A3.333 3.333 0 0 0 1.667 15.833V17.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          building:
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 18.333V3.333a1.667 1.667 0 0 1 1.667-1.667h6.666A1.667 1.667 0 0 1 15 3.333v15H5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10H3.333c-.92 0-1.666.747-1.666 1.667v5c0 .92.746 1.666 1.666 1.666H5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7.5h1.667c.92 0 1.666.747 1.666 1.667v7.5c0 .92-.746 1.666-1.666 1.666H15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          compass:
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.604 1.913a.417.417 0 0 1 .792 0l1.925 3.899a1.667 1.667 0 0 0 1.333.91l4.305.63a.417.417 0 0 1 .233.71l-3.113 3.032a1.667 1.667 0 0 0-.447 1.412l.735 4.283a.417.417 0 0 1-.604.438l-3.848-2.023a1.666 1.666 0 0 0-1.49 0l-3.847 2.023a.417.417 0 0 1-.604-.438l.734-4.283a1.667 1.667 0 0 0-.447-1.412L1.8 8.163a.417.417 0 0 1 .234-.71l4.304-.63a1.667 1.667 0 0 0 1.333-.91l1.934-3.9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          map: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.667 8.333c0 4.16-4.616 8.494-6.167 9.833a.833.833 0 0 1-1.166 0C7.783 16.827 3.167 12.494 3.167 8.333c0-1.768.702-3.463 1.952-4.714A6.667 6.667 0 0 1 10 1.667c1.768 0 3.464.702 4.714 1.952a6.666 6.666 0 0 1 1.953 4.714Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 10.833a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          calendar:
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.667 1.667V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.333 1.667V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.833 3.333H4.167A1.667 1.667 0 0 0 2.5 5v11.667A1.667 1.667 0 0 0 4.167 18.333h11.666A1.667 1.667 0 0 0 17.5 16.667V5A1.667 1.667 0 0 0 15.833 3.333Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 8.333h15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          star: '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.604 1.913a.417.417 0 0 1 .792 0l1.925 3.899a1.667 1.667 0 0 0 1.333.91l4.305.63a.417.417 0 0 1 .233.71l-3.113 3.032a1.667 1.667 0 0 0-.447 1.412l.735 4.283a.417.417 0 0 1-.604.438l-3.848-2.023a1.666 1.666 0 0 0-1.49 0l-3.847 2.023a.417.417 0 0 1-.604-.438l.734-4.283a1.667 1.667 0 0 0-.447-1.412L1.8 8.163a.417.417 0 0 1 .234-.71l4.304-.63a1.667 1.667 0 0 0 1.333-.91l1.934-3.9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          chart:
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 2.5v13.333c0 .442.176.866.489 1.178.313.313.737.489 1.178.489H17.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 14.167V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.833 14.167V4.167" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.667 14.167V11.667" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          settings:
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.183 1.667H9.817a1.667 1.667 0 0 0-1.667 1.667v.15a1.667 1.667 0 0 1-.833 1.442l-.358.209a1.666 1.666 0 0 1-1.7 0l-.125-.067a1.667 1.667 0 0 0-1.786.143 1.667 1.667 0 0 0-.417 2.108l.184.316a1.667 1.667 0 0 1-.3 1.974l-.125.125a1.667 1.667 0 0 0-.417 2.108 1.667 1.667 0 0 0 1.786.143l.125-.067a1.666 1.666 0 0 1 1.7 0l.358.209a1.667 1.667 0 0 1 .833 1.442v.15a1.667 1.667 0 0 0 1.667 1.667h.366a1.667 1.667 0 0 0 1.667-1.667v-.15a1.667 1.667 0 0 1 .833-1.442l.358-.209a1.666 1.666 0 0 1 1.7 0l.125.067a1.667 1.667 0 0 0 1.786-.143 1.667 1.667 0 0 0 .417-2.108l-.184-.316a1.667 1.667 0 0 1 .3-1.974l.125-.125a1.667 1.667 0 0 0 .417-2.108 1.667 1.667 0 0 0-1.786-.143l-.125.067a1.666 1.666 0 0 1-1.7 0l-.358-.209a1.667 1.667 0 0 1-.833-1.442v-.15a1.667 1.667 0 0 0-1.667-1.667Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        };
+        function exportUsersToExcel() {
+  const rows = [["Tên người dùng", "Email", "Vai trò", "Trạng thái"]];
+
+  document.querySelectorAll("#userTable tbody tr").forEach((tr) => {
+    const cells = tr.querySelectorAll("td");
+    rows.push([
+      cells[0]?.innerText.trim() || "",
+      cells[1]?.innerText.trim() || "",
+      cells[2]?.innerText.trim() || "",
+      cells[3]?.innerText.trim() || "",
+    ]);
+  });
+
+  const csvContent = "\uFEFF" + rows.map(row =>
+    row.map(value => `"${String(value).replaceAll('"', '""')}"`).join(",")
+  ).join("\n");
+
+  const blob = new Blob([csvContent], {
+    type: "text/csv;charset=utf-8;",
+  });
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "danh-sach-nguoi-dung.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+        bind();
+        const exportBtn = document.querySelector(".btn.primary");
+if (exportBtn) {
+  exportBtn.addEventListener("click", exportUsersToExcel);
+}
+        loadAndRender().catch((err) => {
+          console.error(err);
+          // fallback to hard-coded data if API fails
+          const fallback = window.quanLyNguoiDungData || {};
+          render({
+            nav: Array.isArray(fallback.nav) ? fallback.nav : DEFAULT_NAV,
+            user: fallback.user || DEFAULT_USER,
+            stats: fallback.stats || [],
+            users: fallback.users || [],
+            paging: fallback.paging || { text: "", pages: [1], page: 1 }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

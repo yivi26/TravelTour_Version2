@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khách hàng</title>
+    <link rel="stylesheet" href="../../assets/css/guide/tongquan.css" />
+    <link rel="stylesheet" href="../../assets/css/guide/khachhang.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <header class="topbar">
+        <div class="topbar-left">
+          <a href="tongquan.html" class="logo">TravelTour</a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-info">
+            <p class="user-name" id="topbarUserName">Đang tải...</p>
+            <p class="user-role" id="topbarUserRole">Hướng dẫn viên</p>
+          </div>
+
+          <img
+            class="user-avatar"
+            id="topbarUserAvatar"
+            src="https://ui-avatars.com/api/?name=User&background=16a34a&color=fff"
+            alt="Guide Avatar"
+          />
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        <aside class="sidebar">
+          <nav class="sidebar-menu">
+            <a href="tongquan.html" class="menu-item">
+              <span class="menu-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+
+            <a href="lichtrinh.html" class="menu-item">
+              <span class="menu-icon">🕘</span>
+              <span>Lịch trình của tôi</span>
+            </a>
+
+            <a href="tourdangdan.html" class="menu-item">
+              <span class="menu-icon">📅</span>
+              <span>Tour đang dẫn</span>
+            </a>
+
+            <a href="khachhang.html" class="menu-item active">
+              <span class="menu-icon">👥</span>
+              <span>Khách hàng</span>
+            </a>
+
+            <a href="thunhap.html" class="menu-item">
+              <span class="menu-icon">💰</span>
+              <span>Thu nhập</span>
+            </a>
+
+            <a href="hosocanhan.html" class="menu-item">
+              <span class="menu-icon">👤</span>
+              <span>Hồ sơ cá nhân</span>
+            </a>
+
+            <button class="menu-item logout-btn" type="button" id="logoutBtn">
+              <span class="menu-icon">🚪</span>
+              <span>Đăng xuất</span>
+            </button>
+          </nav>
+        </aside>
+
+        <main class="main-content">
+          <div class="page-container">
+            <div class="page-header">
+              <h1>Khách hàng</h1>
+              <p>Quản lý danh sách khách tham gia tour</p>
+            </div>
+
+            <div class="card customer-header-card">
+              <div class="customer-header-row">
+                <div>
+                  <h3 class="section-title small-title">
+                    Danh sách khách hàng
+                  </h3>
+                  <p class="header-desc" id="customerCountText">
+                    Tổng số 0 khách hàng
+                  </p>
+                </div>
+
+                <div class="customer-filter-group">
+                  <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input
+                      type="text"
+                      id="customerSearchInput"
+                      placeholder="Tìm kiếm khách hàng..."
+                    />
+                  </div>
+
+                  <select id="tourFilter">
+                    <option value="all">Tất cả tour</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="card customer-table-card">
+              <div class="table-wrap">
+                <table class="customer-table">
+                  <thead>
+                    <tr>
+                      <th>Tên người đặt tour</th>
+                      <th>Số điện thoại</th>
+                      <th>Email</th>
+                      <th>Tour tham gia</th>
+                      <th>Ngày khởi hành</th>
+                      <th>Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="customerTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../assets/js/guide/guideTopbar.js"></script>
+    <script src="../../assets/js/guide/khachhang.js"></script>
+  </body>
+</html>

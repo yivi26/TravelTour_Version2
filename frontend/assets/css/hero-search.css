@@ -1,0 +1,124 @@
+/* Shared hero + search box (match index.html style.css) */
+:root {
+  --primary: #1dbf73;
+  --primary-dark: #169c5e;
+  --bg-light: #f5faf7;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --white: #ffffff;
+  --border: #e5e7eb;
+}
+
+.hero .container {
+  width: 1200px;
+  max-width: calc(100% - 32px);
+  margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  height: 480px;
+  background: url("https://images.unsplash.com/photo-1684247969270-87c01490a584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1400")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.hero-content p {
+  font-size: 28px;
+  margin-bottom: 36px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.search-box {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 220px;
+  gap: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.search-item {
+  text-align: left;
+}
+
+.search-item label {
+  display: block;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.search-item input,
+.search-item select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #f4faf7;
+  font-size: 15px;
+}
+
+.search-btn-wrap {
+  display: flex;
+  align-items: end;
+}
+
+.btn-search {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-search:hover {
+  background: var(--primary-dark);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero-content h1 {
+    font-size: 44px;
+  }
+  .hero-content p {
+    font-size: 20px;
+  }
+  .search-box {
+    grid-template-columns: 1fr;
+  }
+  .search-btn-wrap {
+    align-items: stretch;
+  }
+  .btn-search {
+    height: 50px;
+  }
+}
+

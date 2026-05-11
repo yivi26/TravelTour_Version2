@@ -1,0 +1,24 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "capstone-full-version2",
+    "clean-feature-trung",
+    "duong",
+    "feature/nhat",
+    "main"
+  ],
+  "parent": {
+    "capstone-full-version2": "main",
+    "clean-feature-trung": "main",
+    "duong": "main",
+    "feature/nhat": "main",
+    "main": null
+  },
+  "order": [
+    "main",
+    "capstone-full-version2",
+    "clean-feature-trung",
+    "duong",
+    "feature/nhat"
+  ]
+}

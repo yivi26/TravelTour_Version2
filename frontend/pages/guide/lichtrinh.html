@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lịch trình của tôi</title>
+    <link rel="stylesheet" href="../../assets/css/guide/tongquan.css" />
+    <link rel="stylesheet" href="../../assets/css/guide/lichtrinh.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <header class="topbar">
+        <div class="topbar-left">
+          <a href="tongquan.html" class="logo">TravelTour</a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-info">
+            <p class="user-name" id="topbarUserName">Đang tải...</p>
+            <p class="user-role" id="topbarUserRole">Hướng dẫn viên</p>
+          </div>
+
+          <img
+            class="user-avatar"
+            id="topbarUserAvatar"
+            src="https://ui-avatars.com/api/?name=User&background=16a34a&color=fff"
+            alt="Guide Avatar"
+          />
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        <aside class="sidebar">
+          <nav class="sidebar-menu">
+            <a href="tongquan.html" class="menu-item">
+              <span class="menu-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+
+            <a href="lichtrinh.html" class="menu-item active">
+              <span class="menu-icon">🗓</span>
+              <span>Lịch trình của tôi</span>
+            </a>
+
+            <a href="tourdangdan.html" class="menu-item">
+              <span class="menu-icon">📍</span>
+              <span>Tour đang dẫn</span>
+            </a>
+
+            <a href="khachhang.html" class="menu-item">
+              <span class="menu-icon">👥</span>
+              <span>Khách hàng</span>
+            </a>
+
+            <a href="thunhap.html" class="menu-item">
+              <span class="menu-icon">💰</span>
+              <span>Thu nhập</span>
+            </a>
+
+            <a href="hosocanhan.html" class="menu-item">
+              <span class="menu-icon">👤</span>
+              <span>Hồ sơ cá nhân</span>
+            </a>
+
+            <button class="menu-item logout-btn" id="logoutBtn" type="button">
+              <span class="menu-icon">🚪</span>
+              <span>Đăng xuất</span>
+            </button>
+          </nav>
+        </aside>
+
+        <main class="main-content">
+          <div class="page-container">
+            <div class="page-header">
+              <h1>Lịch trình của tôi</h1>
+              <p>Quản lý lịch trình tour của bạn</p>
+            </div>
+
+            <div class="card filter-card">
+              <div class="filter-wrapper">
+                <select id="statusFilter">
+                  <option value="all">Tất cả</option>
+                  <option value="upcoming">Sắp diễn ra</option>
+                  <option value="running">Đang diễn ra</option>
+                  <option value="done">Đã xong</option>
+                </select>
+
+                <button id="filterBtn">Lọc</button>
+              </div>
+            </div>
+
+            <div id="scheduleList" class="schedule-list"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../assets/js/guide/guideTopbar.js"></script>
+    <script src="../../assets/js/guide/lichtrinh.js"></script>
+  </body>
+</html>

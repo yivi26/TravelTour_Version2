@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cài đặt hệ thống - TravelTour</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/admin/caidat.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-name">TravelTour</div>
+          <div class="brand-sub">Admin Dashboard</div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="nav-item" href="tongquan.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+            </svg>
+            Tổng quan
+          </a>
+          <a class="nav-item" href="qlinguoidung.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+            </svg>
+            Quản lý người dùng
+          </a>
+          <a class="nav-item" href="qlinhacungcap.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+            Quản lý nhà cung cấp tour
+          </a>
+          <a class="nav-item" href="hdv.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>
+            Quản lý hướng dẫn viên
+          </a>
+          <a class="nav-item" href="qlitour.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M17.657 16.657L13.414 20.9a2 2 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"
+              />
+              <circle cx="12" cy="11" r="3" />
+            </svg>
+            Quản lý tour
+          </a>
+          <a class="nav-item" href="qlibooking.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"
+              />
+            </svg>
+            Quản lý booking
+          </a>
+          <a class="nav-item" href="qlidanhgia.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            Quản lý đánh giá
+          </a>
+          <a class="nav-item" href="baocao.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M18 20V10M12 20V4M6 20v-6" />
+            </svg>
+            Báo cáo &amp; thống kê
+          </a>
+          <a class="nav-item active" href="caidat.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+              />
+            </svg>
+            Cài đặt hệ thống
+          </a>
+        </nav>
+        <button id="logoutBtn" class="sidebar-logout" type="button">Đăng xuất</button>
+        <div class="sidebar-footer">© 2026 TravelTour</div>
+      </aside>
+
+      <!-- ===== MAIN ===== -->
+      <div class="main">
+        <!-- HEADER -->
+        <header class="header">
+          <div class="header-title">Cài đặt hệ thống</div>
+          <div class="header-right">
+            <div class="search-box">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              Tìm kiếm...
+            </div>
+            <button class="bell-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"
+                />
+              </svg>
+              <span class="bell-dot"></span>
+            </button>
+            <div class="user-info">
+              <div class="avatar">AD</div>
+              <div>
+                <div class="user-name">Admin User</div>
+                <div class="user-email">admin@traveltour.vn</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content">
+          <p class="page-sub">Cấu hình và quản lý cài đặt hệ thống</p>
+
+          <div class="grid">
+            <!-- 1. Cài đặt chung -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon green">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Cài đặt chung</div>
+              </div>
+              <div class="field">
+                <label>Tên nền tảng</label>
+                <input type="text" data-setting-key="platform_name" value="TravelTour" />
+              </div>
+              <div class="field">
+                <label>Slogan</label>
+                <input
+                  type="text"
+                  data-setting-key="slogan"
+                  value="Khám phá Việt Nam cùng TravelTour"
+                />
+              </div>
+              <div class="field">
+                <label>Múi giờ</label>
+                <input type="text" data-setting-key="timezone" value="" />
+              </div>
+            </div>
+
+            <!-- 2. Cài đặt Email -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon blue">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div class="card-title">Cài đặt Email</div>
+              </div>
+              <div class="field">
+                <label>Email gửi đi</label>
+                <input type="text" data-setting-key="email_from" value="noreply@traveltour.vn" />
+              </div>
+              <div class="field">
+                <label>Email hỗ trợ</label>
+                <input
+                  type="text"
+                  data-setting-key="email_support"
+                  value="support@traveltour.vn"
+                />
+              </div>
+              <div
+                class="field-row"
+                style="
+                  margin-top: 8px;
+                  border-top: 1px solid #f3f4f6;
+                  padding-top: 10px;
+                "
+              >
+                <span class="field-row-label">Gửi email xác nhận booking</span>
+                <label class="toggle">
+                  <input type="checkbox" data-setting-key="send_booking_confirmation_email" checked />
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 3. Thông báo -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon purple">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Thông báo</div>
+              </div>
+              <div class="field-row">
+                <span class="field-row-label">Booking mới</span>
+                <label class="toggle"
+                  ><input type="checkbox" data-setting-key="notify_new_booking" checked /><span
+                    class="toggle-slider"
+                  ></span
+                ></label>
+              </div>
+              <div class="field-row">
+                <span class="field-row-label">Đánh giá mới</span>
+                <label class="toggle"
+                  ><input type="checkbox" data-setting-key="notify_new_review" checked /><span
+                    class="toggle-slider"
+                  ></span
+                ></label>
+              </div>
+              <div class="field-row">
+                <span class="field-row-label">Tự động duyệt đánh giá</span>
+                <label class="toggle"
+                  ><input type="checkbox" data-setting-key="auto_approve_reviews" checked /><span
+                    class="toggle-slider"
+                  ></span
+                ></label>
+              </div>
+              <div class="field-row">
+                <span class="field-row-label">Nhà cung cấp mới</span>
+                <label class="toggle"
+                  ><input type="checkbox" data-setting-key="notify_new_provider" checked /><span
+                    class="toggle-slider"
+                  ></span
+                ></label>
+              </div>
+              <div class="field-row">
+                <span class="field-row-label">Tour cần phê duyệt</span>
+                <label class="toggle"
+                  ><input type="checkbox" data-setting-key="notify_pending_tour" checked /><span
+                    class="toggle-slider"
+                  ></span
+                ></label>
+              </div>
+            </div>
+
+            <!-- 6. Giao diện -->
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon pink">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                    <line x1="9" y1="9" x2="9.01" y2="9" />
+                    <line x1="15" y1="9" x2="15.01" y2="9" />
+                  </svg>
+                </div>
+                <div class="card-title">Giao diện</div>
+              </div>
+              <div class="swatch-label">Màu chủ đạo</div>
+              <div class="swatches" data-setting-key="theme_primary_color">
+                <div class="swatch selected" data-color="#00a63e" style="background: #00a63e"></div>
+                <div class="swatch" data-color="#2563eb" style="background: #2563eb"></div>
+                <div class="swatch" data-color="#7c3aed" style="background: #7c3aed"></div>
+                <div class="swatch" data-color="#ea580c" style="background: #ea580c"></div>
+              </div>
+              <div class="swatch-label">Logo nền tảng</div>
+              <input
+                class="logo-upload"
+                data-setting-key="logo_url"
+                type="url"
+                placeholder="Nhập URL logo (https://...)"
+              />
+            </div>
+          </div>
+          <!-- end grid -->
+
+          <!-- SAVE -->
+          <div class="save-bar">
+            <button class="btn-save" id="btn-save" type="button">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+                />
+                <polyline points="17 21 17 13 7 13 7 21" />
+                <polyline points="7 3 7 8 15 8" />
+              </svg>
+              Lưu thay đổi
+            </button>
+          </div>
+        </div>
+        <!-- end content -->
+      </div>
+      <!-- end main -->
+    </div>
+    <!-- end app -->
+    <script>
+      (function () {
+        const API = "/api/settings";
+
+        function setSaving(isSaving) {
+          const btn = document.getElementById("btn-save");
+          if (!btn) return;
+          btn.disabled = Boolean(isSaving);
+          btn.style.opacity = isSaving ? "0.7" : "";
+          btn.style.cursor = isSaving ? "not-allowed" : "";
+        }
+
+        function setValueForKey(key, value) {
+          const input = document.querySelector(`[data-setting-key="${key}"]`);
+          if (input && (input.tagName === "INPUT" || input.tagName === "TEXTAREA")) {
+            if (input.type === "checkbox") input.checked = Boolean(value);
+            else input.value = value == null ? "" : String(value);
+            return;
+          }
+
+          if (key === "theme_primary_color") {
+            const wrap = document.querySelector(`.swatches[data-setting-key="theme_primary_color"]`);
+            if (!wrap) return;
+            const swatches = Array.from(wrap.querySelectorAll(".swatch"));
+            for (const sw of swatches) {
+              const color = sw.getAttribute("data-color");
+              sw.classList.toggle("selected", Boolean(color && String(color).toLowerCase() === String(value || "").toLowerCase()));
+            }
+          }
+        }
+
+        function getPayloadFromForm() {
+          const payload = {};
+          const fields = Array.from(document.querySelectorAll("[data-setting-key]"));
+
+          for (const el of fields) {
+            const key = el.getAttribute("data-setting-key");
+            if (!key) continue;
+
+            if (el.classList.contains("swatches") && key === "theme_primary_color") {
+              const selected = el.querySelector(".swatch.selected");
+              payload[key] = selected?.getAttribute("data-color") || "#00a63e";
+              continue;
+            }
+
+            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+              if (el.type === "checkbox") payload[key] = Boolean(el.checked);
+              else if (el.type === "url") payload[key] = String(el.value || "").trim() || null;
+              else payload[key] = String(el.value || "").trim();
+            }
+          }
+
+          return payload;
+        }
+
+        async function apiGet() {
+          const res = await fetch(API, { method: "GET" });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data?.message || "Không tải được cài đặt");
+          return data?.data || {};
+        }
+
+        async function apiPut(payload) {
+          const res = await fetch(API, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error(data?.message || "Lưu cài đặt thất bại");
+          return data?.data || {};
+        }
+
+        function wireSwatches() {
+          const wrap = document.querySelector(`.swatches[data-setting-key="theme_primary_color"]`);
+          if (!wrap) return;
+
+          wrap.addEventListener("click", (e) => {
+            const sw = e.target && e.target.closest ? e.target.closest(".swatch") : null;
+            if (!sw) return;
+            for (const el of wrap.querySelectorAll(".swatch")) el.classList.remove("selected");
+            sw.classList.add("selected");
+          });
+        }
+
+        async function init() {
+          wireSwatches();
+
+          try {
+            setSaving(true);
+            const settings = await apiGet();
+            for (const [k, v] of Object.entries(settings)) setValueForKey(k, v);
+          } catch (err) {
+            console.error(err);
+            alert(err?.message || "Không tải được cài đặt hệ thống");
+          } finally {
+            setSaving(false);
+          }
+
+          const btn = document.getElementById("btn-save");
+          if (btn) {
+            btn.addEventListener("click", async () => {
+              try {
+                setSaving(true);
+                const payload = getPayloadFromForm();
+                const updated = await apiPut(payload);
+                for (const [k, v] of Object.entries(updated)) setValueForKey(k, v);
+                alert("Đã lưu thay đổi!");
+              } catch (err) {
+                console.error(err);
+                alert(err?.message || "Lưu cài đặt thất bại");
+              } finally {
+                setSaving(false);
+              }
+            });
+          }
+        }
+
+        document.addEventListener("DOMContentLoaded", init);
+      })();
+    </script>
+    <script src="../../assets/js/admin/logout.js"></script>
+    <script src="../../assets/js/admin/thongbao.js"></script>
+  </body>
+</html>

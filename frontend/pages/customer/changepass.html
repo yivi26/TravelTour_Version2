@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đổi mật khẩu - TravelTour</title>
+    <link rel="stylesheet" href="../../assets/css/customer/customer.css" />
+    <link rel="stylesheet" href="../../assets/css/customer/changepass.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Top Navigation -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle">☰</button>
+          <a href="customer.html" class="logo">TravelTour</a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-info">
+            <p class="user-name">Nguyễn Văn An</p>
+            <p class="user-role">Khách hàng</p>
+          </div>
+          <img
+            class="user-avatar"
+            src="https://images.unsplash.com/photo-1768933294181-82778103e501?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGFzaWFuJTIwd29tYW4lMjB0cmF2ZWxlciUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MzY3MjYxNXww&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="User Avatar"
+          />
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+          <nav class="sidebar-menu">
+            <a href="customer.html" class="menu-item">
+              <span class="menu-icon">👤</span>
+              <span>Thông tin cá nhân</span>
+            </a>
+
+            <a href="history.html" class="menu-item">
+              <span class="menu-icon">🕘</span>
+              <span>Lịch sử đặt tour</span>
+            </a>
+
+            <a href="booking.html" class="menu-item">
+              <span class="menu-icon">📅</span>
+              <span>Booking của tôi</span>
+            </a>
+
+            <a href="changepass.html" class="menu-item active">
+              <span class="menu-icon">🔒</span>
+              <span>Đổi mật khẩu</span>
+            </a>
+
+            <button class="menu-item logout-btn" type="button">
+              <span class="menu-icon">🚪</span>
+              <span>Đăng xuất</span>
+            </button>
+          </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <div class="page-container customer-password-page">
+            <section class="page-header password-page-header">
+              <h1>Đổi mật khẩu</h1>
+              <p>Cập nhật mật khẩu để bảo mật tài khoản của bạn</p>
+            </section>
+
+            <div class="password-layout">
+              <!-- Left Form -->
+              <section class="card password-form-card">
+                <div class="password-card-header">
+                  <div class="password-card-icon">🔒</div>
+                  <div>
+                    <h2>Thay đổi mật khẩu</h2>
+                    <p>Nhập mật khẩu hiện tại và mật khẩu mới</p>
+                  </div>
+                </div>
+
+                <form id="changePasswordForm" class="password-form">
+                  <div class="form-group">
+                    <label for="currentPassword">Mật khẩu hiện tại</label>
+                    <div class="password-input-wrap">
+                      <span class="input-icon">🔒</span>
+                      <input
+                        id="currentPassword"
+                        type="password"
+                        placeholder="Nhập mật khẩu hiện tại"
+                      />
+                      <button
+                        type="button"
+                        class="toggle-password"
+                        data-target="currentPassword"
+                      >
+                        👁
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="newPassword">Mật khẩu mới</label>
+                    <div class="password-input-wrap">
+                      <span class="input-icon">🔒</span>
+                      <input
+                        id="newPassword"
+                        type="password"
+                        placeholder="Nhập mật khẩu mới"
+                      />
+                      <button
+                        type="button"
+                        class="toggle-password"
+                        data-target="newPassword"
+                      >
+                        👁
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="confirmPassword">Xác nhận mật khẩu mới</label>
+                    <div class="password-input-wrap">
+                      <span class="input-icon">🔒</span>
+                      <input
+                        id="confirmPassword"
+                        type="password"
+                        placeholder="Nhập lại mật khẩu mới"
+                      />
+                      <button
+                        type="button"
+                        class="toggle-password"
+                        data-target="confirmPassword"
+                      >
+                        👁
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="passwordMessage" class="password-message"></div>
+
+                  <div class="password-action-row">
+                    <button
+                      type="submit"
+                      class="password-btn password-btn-primary"
+                    >
+                      Cập nhật mật khẩu
+                    </button>
+                    <button
+                      type="button"
+                      class="password-btn password-btn-outline"
+                      id="cancelPasswordBtn"
+                    >
+                      Hủy
+                    </button>
+                  </div>
+                </form>
+              </section>
+
+              <!-- Right Content -->
+              <aside class="password-side">
+                <section class="card password-side-card">
+                  <div class="side-card-title">
+                    <span class="side-icon">🛡</span>
+                    <h3>Yêu cầu mật khẩu</h3>
+                  </div>
+
+                  <ul class="password-rule-list">
+                    <li>
+                      <span class="rule-check">✔</span
+                      ><span>Tối thiểu 8 ký tự</span>
+                    </li>
+                    <li>
+                      <span class="rule-check">✔</span
+                      ><span>Ít nhất 1 chữ hoa</span>
+                    </li>
+                    <li>
+                      <span class="rule-check">✔</span
+                      ><span>Ít nhất 1 chữ thường</span>
+                    </li>
+                    <li>
+                      <span class="rule-check">✔</span><span>Ít nhất 1 số</span>
+                    </li>
+                    <li>
+                      <span class="rule-check">✔</span
+                      ><span>Ít nhất 1 ký tự đặc biệt</span>
+                    </li>
+                  </ul>
+                </section>
+
+                <section class="security-tip-card">
+                  <h3>Lời khuyên bảo mật</h3>
+                  <ul class="security-tip-list">
+                    <li>
+                      <span>•</span
+                      ><span
+                        >Không sử dụng mật khẩu đã dùng cho tài khoản khác</span
+                      >
+                    </li>
+                    <li>
+                      <span>•</span
+                      ><span>Thay đổi mật khẩu định kỳ để bảo mật tốt hơn</span>
+                    </li>
+                    <li>
+                      <span>•</span
+                      ><span>Không chia sẻ mật khẩu với bất kỳ ai</span>
+                    </li>
+                    <li>
+                      <span>•</span
+                      ><span>Sử dụng mật khẩu mạnh và khó đoán</span>
+                    </li>
+                  </ul>
+                </section>
+              </aside>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="modal" id="logoutModal">
+      <div class="modal-content">
+        <h3>Bạn có muốn đăng xuất không?</h3>
+
+        <div class="modal-actions">
+          <button class="btn-cancel" id="cancelLogout">Hủy</button>
+          <button class="btn-confirm" id="confirmLogout">Đăng xuất</button>
+        </div>
+      </div>
+    </div>
+    <script src="../../assets/js/customer/changepass.js"></script>
+  </body>
+</html>

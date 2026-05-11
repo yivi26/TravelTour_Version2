@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Báo cáo doanh thu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/provider/report.css" />
+    <link rel="stylesheet" href="../../assets/css/provider/provider-logout.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-box">
+        <h1>TravelTour</h1>
+        <p>Nhà cung cấp tour</p>
+      </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="./dashboard.html" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            Tổng quan
+          </a>
+        </li>
+
+        <li>
+          <a href="./tour_management.html" class="nav-item">
+            <i class="fa-solid fa-map"></i>
+            Quản lý tour
+          </a>
+        </li>
+
+        <li>
+          <a href="./booking_management.html" class="nav-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            Quản lý booking
+          </a>
+        </li>
+
+        <li>
+          <a href="./guide_assignment.html" class="nav-item">
+            <i class="fa-solid fa-users"></i>
+            Phân công hướng dẫn viên
+          </a>
+        </li>
+
+        <li>
+          <a href="./report.html" class="nav-item active">
+            <i class="fa-solid fa-chart-line"></i>
+            Báo cáo doanh thu
+          </a>
+        </li>
+
+        <li>
+          <a href="./profile.html" class="nav-item">
+            <i class="fa-solid fa-building"></i>
+            Hồ sơ nhà cung cấp
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-logout">
+        <button
+          type="button"
+          class="sidebar-logout-btn provider-logout-action"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="search-bar-global">
+          <i class="fa-solid fa-search"></i>
+          <input id="globalSearchInput" type="text" placeholder="Tìm kiếm..." />
+        </div>
+
+        <div class="user-area">
+          <div class="bell">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot"></span>
+          </div>
+
+          <div class="profile">
+            <div class="profile-info">
+              <div class="name">Provider</div>
+              <div class="email">provider@traveltour.vn</div>
+            </div>
+            <div class="avatar"><i class="fa-regular fa-user"></i></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <h2>Báo cáo doanh thu</h2>
+        <p>Thống kê và phân tích doanh thu</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-info">
+            <div class="title">Tổng doanh thu 6 tháng</div>
+            <div class="value" id="totalRevenue6Months">0 đ</div>
+            <div class="trend" id="totalRevenueTrend">Dữ liệu thực từ hệ thống</div>
+          </div>
+          <div class="stat-icon icon-green">
+            <i class="fa-solid fa-dollar-sign"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <div class="title">Tổng booking</div>
+            <div class="value" id="totalBookings">0</div>
+            <div class="trend" id="totalBookingsTrend">Dữ liệu thực từ hệ thống</div>
+          </div>
+          <div class="stat-icon icon-blue">
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <div class="title">Doanh thu trung bình/tháng</div>
+            <div class="value" id="avgRevenuePerMonth">0 đ</div>
+            <div class="trend" id="avgRevenueTrend">Dữ liệu thực từ hệ thống</div>
+          </div>
+          <div class="stat-icon icon-orange">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <div class="title">Khách hàng</div>
+            <div class="value" id="totalCustomers">0</div>
+            <div class="trend" id="totalCustomersTrend">Dữ liệu thực từ hệ thống</div>
+          </div>
+          <div class="stat-icon icon-purple">
+            <i class="fa-solid fa-users"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="card">
+          <div class="card-title">Doanh thu theo tháng</div>
+          <div class="chart-container">
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Booking theo tháng</div>
+          <div class="chart-container">
+            <canvas id="lineChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="card">
+          <div class="card-title">Tour phổ biến</div>
+          <div class="pie-container">
+            <canvas id="pieChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Top tour doanh thu</div>
+          <div id="topTours" class="top-list"></div>
+        </div>
+      </div>
+
+      <div class="card revenue-table-card">
+        <div class="card-title">Chi tiết doanh thu theo tour</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tên tour</th>
+                <th>Số booking</th>
+                <th>Doanh thu</th>
+                <th>Tỷ lệ</th>
+              </tr>
+            </thead>
+            <tbody id="revenueTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../assets/js/provider/report.js"></script>
+    <script src="../../assets/js/provider/provider-notifications.js"></script>
+    <script src="../../assets/js/provider/provider-logout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Đặt tour - Tùy chọn tour</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/navbar.css" />
+    <link rel="stylesheet" href="../../assets/css/tours/tuychon.css" />
+  </head>
+  <body class="booking-page has-public-navbar">
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a
+          href="../../index.html"
+          class="logo"
+          aria-label="TravelTour — về trang chủ"
+          >TravelTour</a
+        >
+
+        <ul class="nav-menu">
+          <li><a href="../../index.html">Trang chủ</a></li>
+          <li><a href="../../index.html#about">Giới thiệu</a></li>
+          <li><a href="./dstour.html">Điểm đến</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button type="button" class="btn btn-primary">Đặt tour</button>
+          <button type="button" class="btn btn-outline" id="btnLogout">
+            Đăng xuất
+          </button>
+          <a href="../customer/customer.html" class="user-icon">👤</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="booking-main">
+      <div class="booking-shell">
+        <nav class="booking-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Trang chủ</a>
+          <span>&gt;</span>
+          <a href="./dstour.html">Tour du lịch</a>
+          <span>&gt;</span>
+          <a href="./chitiet.html">Chi tiết tour</a>
+          <span>&gt;</span>
+          <span>Đặt tour</span>
+        </nav>
+
+        <section class="booking-steps" aria-label="Quy trình đặt tour">
+          <article class="booking-step booking-step--completed">
+            <span class="booking-step__bubble">✓</span>
+            <span class="booking-step__label">Thông tin khách hàng</span>
+          </article>
+          <span
+            class="booking-step__line booking-step__line--done"
+            aria-hidden="true"
+          ></span>
+          <article class="booking-step booking-step--active">
+            <span class="booking-step__bubble">2</span>
+            <span class="booking-step__label">Tùy chọn tour</span>
+          </article>
+          <span class="booking-step__line" aria-hidden="true"></span>
+          <article class="booking-step">
+            <span class="booking-step__bubble">3</span>
+            <span class="booking-step__label">Thanh toán</span>
+          </article>
+        </section>
+
+        <div class="booking-layout">
+          <div class="booking-content">
+            <section class="tour-card">
+              <div class="tour-card__media">
+                <img
+                  id="step2-tour-image"
+                  src="../../assets/images/tours/chitiet/hero-vinh-ha-long.png"
+                  alt="Tour Vịnh Hạ Long"
+                />
+              </div>
+              <div class="tour-card__body">
+                <h1 id="step2-tour-title">
+                  Tour Vịnh Hạ Long - Khám phá di sản thiên nhiên thế giới
+                </h1>
+                <ul class="tour-card__meta">
+                  <li>
+                    <span class="meta-icon meta-icon--pin"></span
+                    ><span id="step2-tour-location">Quảng Ninh, Việt Nam</span>
+                  </li>
+                  <li>
+                    <span class="meta-icon meta-icon--calendar"></span
+                    ><span id="step2-tour-date">25/03/2026</span>
+                  </li>
+                  <li>
+                    <span class="meta-icon meta-icon--guest"></span
+                    ><span id="step2-tour-guests">1 khách</span>
+                  </li>
+                </ul>
+                <div class="tour-card__pricing">
+                  <div class="tour-card__pricing-row">
+                    <span>Giá mỗi người:</span>
+                    <strong id="step2-tour-price-per-person">8.500.000 ₫</strong>
+                  </div>
+                  <div
+                    class="tour-card__pricing-row tour-card__pricing-row--total"
+                  >
+                    <span>Tổng cộng:</span>
+                    <strong id="step2-tour-total-price">8.500.000 ₫</strong>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="booking-panel option-panel">
+              <h2>Tùy chọn tour</h2>
+
+              <form class="option-form" id="option-form">
+                <section class="option-group" data-group="room">
+                  <div class="option-group__title">
+                    <span
+                      class="option-group__icon option-group__icon--room"
+                    ></span>
+                    <h3>Loại phòng khách sạn<span>*</span></h3>
+                  </div>
+                  <div class="option-list">
+                    <label class="option-card is-selected">
+                      <input
+                        type="radio"
+                        name="room"
+                        value="standard"
+                        data-price="0"
+                        checked
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title"
+                          >Phòng tiêu chuẩn
+                          <small>Phòng 2 người, tiện nghi cơ bản</small></span
+                        >
+                        <strong class="option-card__price">+0₫</strong>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input
+                        type="radio"
+                        name="room"
+                        value="deluxe"
+                        data-price="2000000"
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title"
+                          >Phòng cao cấp
+                          <small>Phòng rộng rãi, view đẹp</small></span
+                        >
+                        <strong class="option-card__price">+2,000,000₫</strong>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input
+                        type="radio"
+                        name="room"
+                        value="suite"
+                        data-price="5000000"
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title"
+                          >Suite sang trọng
+                          <small>Phòng suite, tiện nghi 5 sao</small></span
+                        >
+                        <strong class="option-card__price">+5,000,000₫</strong>
+                      </span>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="option-group" data-group="pickup">
+                  <div class="option-group__title">
+                    <span
+                      class="option-group__icon option-group__icon--pickup"
+                    ></span>
+                    <h3>Đưa đón sân bay <span>*</span></h3>
+                  </div>
+                  <div class="option-list">
+                    <label class="option-card is-selected">
+                      <input
+                        type="radio"
+                        name="pickup"
+                        value="none"
+                        data-price="0"
+                        checked
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title">Không cần</span>
+                        <strong class="option-card__price">+0₫</strong>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input
+                        type="radio"
+                        name="pickup"
+                        value="one-way"
+                        data-price="500000"
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title">Đưa đón 1 chiều</span>
+                        <strong class="option-card__price">+500,000₫</strong>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input
+                        type="radio"
+                        name="pickup"
+                        value="round-trip"
+                        data-price="900000"
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title">Đưa đón 2 chiều</span>
+                        <strong class="option-card__price">+900,000₫</strong>
+                      </span>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="option-group" data-group="meal">
+                  <div class="option-group__title">
+                    <span
+                      class="option-group__icon option-group__icon--meal"
+                    ></span>
+                    <h3>Lựa chọn bữa ăn <span>*</span></h3>
+                  </div>
+                  <div class="option-list">
+                    <label
+                      class="option-card option-card--detailed is-selected"
+                    >
+                      <input
+                        type="radio"
+                        name="meal"
+                        value="standard"
+                        data-price="0"
+                        checked
+                      />
+                      <span class="option-card__dot"></span>
+                      <span
+                        class="option-card__content option-card__content--multi"
+                      >
+                        <span class="option-card__title"
+                          >Bữa ăn tiêu chuẩn</span
+                        >
+                        <span class="option-card__detail"
+                          >Món ăn địa phương đặc trưng</span
+                        >
+                        <strong class="option-card__price">Đã bao gồm</strong>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input
+                        type="radio"
+                        name="meal"
+                        value="vegan"
+                        data-price="0"
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title"
+                          >Bữa ăn chay
+                          <small>Chế độ ăn chay hoàn toàn</small></span
+                        >
+                        <strong class="option-card__price">+0₫</strong>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input
+                        type="radio"
+                        name="meal"
+                        value="halal"
+                        data-price="0"
+                      />
+                      <span class="option-card__dot"></span>
+                      <span class="option-card__content">
+                        <span class="option-card__title"
+                          >Bữa ăn Halal
+                          <small>Thực đơn theo tiêu chuẩn Halal</small></span
+                        >
+                        <strong class="option-card__price">+0₫</strong>
+                      </span>
+                    </label>
+                  </div>
+                </section>
+              </form>
+            </section>
+
+            <div class="booking-actions">
+              <button
+                class="action-button action-button--ghost js-go-back"
+                type="button"
+              >
+                <span>&larr;</span>
+                <span>Quay lại</span>
+              </button>
+              <button
+                class="action-button action-button--primary js-go-next"
+                type="submit"
+                form="option-form"
+              >
+                <span>Tiếp tục</span>
+                <span>&rsaquo;</span>
+              </button>
+            </div>
+
+            <a class="back-link" href="./chitiet.html">Quay lại trang tour</a>
+          </div>
+
+          <aside class="summary-card">
+            <h2>Tổng kết đặt tour</h2>
+
+            <div class="summary-card__rows">
+              <div class="summary-card__row">
+                <span id="summary-guest-line">Giá tour ×<br />0 khách</span>
+                <strong id="summary-tour-price">0 ₫</strong>
+              </div>
+            </div>
+
+            <div class="summary-card__total">
+              <span>Tổng tiền</span>
+              <strong id="summary-grand-total">0 ₫</strong>
+            </div>
+
+            <div class="summary-card__note">
+              <span class="summary-card__note-icon">i</span>
+              <p>
+                Lưu ý: Bạn sẽ nhận được email xác nhận ngay sau khi hoàn tất đặt
+                tour.
+              </p>
+            </div>
+
+            <div class="summary-card__policy">
+              <div class="summary-card__policy-title">
+                📄 Chính sách hủy tour
+              </div>
+
+              <ul class="summary-card__policy-list">
+                <li>- Hủy trước 7 ngày: hoàn 100% giá tour</li>
+                <li>- Hủy trước 3 - 6 ngày: hoàn 50% giá tour</li>
+                <li>- Hủy trước 1 - 2 ngày: hoàn 30% giá tour</li>
+                <li>- Hủy trong ngày khởi hành: không hoàn phí</li>
+                <li class="policy-note-line">
+                  * Yêu cầu hủy tour chỉ được ghi nhận khi thực hiện qua hệ
+                  thống hoặc tổng đài hỗ trợ
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="booking-footer">
+      <div class="booking-footer__inner">
+        <div class="booking-footer__column">
+          <h3>Về TravelTour</h3>
+          <a href="#">Giới thiệu</a>
+          <a href="#">Liên hệ</a>
+          <a href="#">Tuyển dụng</a>
+        </div>
+        <div class="booking-footer__column">
+          <h3>Hỗ trợ</h3>
+          <a href="#">Câu hỏi thường gặp</a>
+          <a href="#">Chính sách hoàn tiền</a>
+          <a href="#">Hướng dẫn đặt tour</a>
+        </div>
+        <div class="booking-footer__column">
+          <h3>Điều khoản</h3>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Quy định chung</a>
+        </div>
+        <div class="booking-footer__column">
+          <h3>Kết nối với chúng tôi</h3>
+          <p>Email: info@traveltour.vn</p>
+          <p>Hotline: 1900 1234</p>
+          <p>Giờ làm việc: 8:00 - 20:00</p>
+        </div>
+      </div>
+      <div class="booking-footer__bottom">
+        © 2026 TravelTour. Bản quyền thuộc về TravelTour Vietnam.
+      </div>
+    </footer>
+
+    <script src="../../assets/js/tours/tuychon.js"></script>
+  </body>
+</html>

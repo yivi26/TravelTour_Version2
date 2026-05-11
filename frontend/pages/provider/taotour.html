@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Tạo tour mới</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="../../assets/css/provider/dashboard.css" />
+    <link rel="stylesheet" href="../../assets/css/provider/taotour.css" />
+    <link rel="stylesheet" href="../../assets/css/provider/provider-logout.css" />
+
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        margin-top: 10px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="logo-box">
+        <h1>TravelTour</h1>
+        <p>Nhà cung cấp tour</p>
+      </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="./dashboard.html" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            Tổng quan
+          </a>
+        </li>
+        <li>
+          <a href="./tour_management.html" class="nav-item active">
+            <i class="fa-solid fa-map"></i>
+            Quản lý tour
+          </a>
+        </li>
+        <li>
+          <a href="./booking_management.html" class="nav-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            Quản lý booking
+          </a>
+        </li>
+        <li>
+          <a href="./guide_assignment.html" class="nav-item">
+            <i class="fa-solid fa-users"></i>
+            Phân công hướng dẫn viên
+          </a>
+        </li>
+        <li>
+          <a href="./report.html" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            Báo cáo doanh thu
+          </a>
+        </li>
+        <li>
+          <a href="./profile.html" class="nav-item">
+            <i class="fa-solid fa-building"></i>
+            Hồ sơ nhà cung cấp
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-logout">
+        <button
+          type="button"
+          class="sidebar-logout-btn provider-logout-action"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="search-bar">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" placeholder="Tìm kiếm..." />
+        </div>
+
+        <div class="user-area">
+          <div class="bell">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot"></span>
+          </div>
+
+          <div class="profile">
+            <div class="profile-info">
+              <div class="name">Provider</div>
+              <div class="email">provider@traveltour.vn</div>
+            </div>
+            <div class="avatar">
+              <i class="fa-regular fa-user"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-header taotour-page-header">
+        <h2>Tạo tour mới</h2>
+        <p>Nhập thông tin để tạo tour du lịch mới</p>
+      </div>
+
+      <div class="create-tour-layout">
+        <div class="create-tour-main">
+          <section class="card create-card">
+            <div class="form-section-title">
+              <div class="section-badge green-badge">
+                <i class="fa-regular fa-file-lines"></i>
+              </div>
+              <h3>Thông tin cơ bản</h3>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="tourTitle">Tên tour <span>*</span></label>
+                <input
+                  id="tourTitle"
+                  name="tourTitle"
+                  type="text"
+                  placeholder="Ví dụ: Tour Hạ Long 3 ngày 2 đêm"
+                />
+                <small>Tên tour nên ngắn gọn và dễ hiểu</small>
+              </div>
+
+              <div class="form-group">
+                <label for="tourCode">Mã tour <span>*</span></label>
+                <input id="tourCode" name="tourCode" type="text" placeholder="VD: HL-001" />
+              </div>
+
+              <div class="form-group">
+                <label for="categorySelect">Danh mục <span>*</span></label>
+                <select id="categorySelect" name="categorySelect"></select>
+              </div>
+
+              <div class="form-group">
+                <label for="tourLocation">Điểm đến <span>*</span></label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <input
+                    id="tourLocation"
+                    name="tourLocation"
+                    type="text"
+                    placeholder="Vịnh Hạ Long, Quảng Ninh"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tourDurationText">Thời gian <span>*</span></label>
+                <div class="input-icon-box">
+                  <i class="fa-regular fa-clock"></i>
+                  <input
+                    id="tourDurationText"
+                    name="tourDurationText"
+                    type="text"
+                    placeholder="3 ngày 2 đêm"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tourStartDate">Ngày bắt đầu</label>
+                <div class="input-icon-box">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="tourStartDate" name="tourStartDate" type="date" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tourEndDate">Ngày kết thúc</label>
+                <div class="input-icon-box">
+                  <i class="fa-regular fa-calendar"></i>
+                  <input id="tourEndDate" name="tourEndDate" type="date" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tourMaxCapacity">Số người tối đa <span>*</span></label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-users"></i>
+                  <input
+                    id="tourMaxCapacity"
+                    name="tourMaxCapacity"
+                    type="number"
+                    placeholder="20"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tourBasePrice">Giá tour <span>*</span></label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  <input
+                    id="tourBasePrice"
+                    name="tourBasePrice"
+                    type="number"
+                    placeholder="5000000"
+                    min="0"
+                  />
+                </div>
+                <small>Giá gốc bằng VNĐ, chưa gồm VAT</small>
+              </div>
+
+              <div class="form-group">
+                <label for="tourSalePrice">Giá khuyến mãi</label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-tag"></i>
+                  <input
+                    id="tourSalePrice"
+                    name="tourSalePrice"
+                    type="number"
+                    placeholder="4500000"
+                    min="0"
+                  />
+                </div>
+                <small>Giá sau giảm, chưa gồm VAT</small>
+              </div>
+
+              <div class="form-group">
+                <label for="discountPercent">% giảm</label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-percent"></i>
+                  <input
+                    id="discountPercent"
+                    name="discountPercent"
+                    type="number"
+                    placeholder="10"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                  />
+                </div>
+                <small>Tự tính theo giá hoặc nhập để tự tính giá khuyến mãi</small>
+              </div>
+
+              <div class="form-group">
+                <label for="tourTaxPercent">VAT (%)</label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-receipt"></i>
+                  <input
+                  id="tourTaxPercent"
+                  name="tourTaxPercent"
+                  type="number"
+                  value="10"
+                  min="0"
+                  step="0.01"
+                  />
+                </div>
+                <small>Mặc định VAT 10%</small>
+              </div>
+
+              <div class="form-group">
+                <label for="tourTax">Tiền thuế VAT</label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-file-invoice-dollar"></i>
+                  <input
+                    id="tourTax"
+                    name="tourTax"
+                    type="number"
+                    placeholder="0"
+                    readonly
+                  />
+                </div>
+                <small>Tự động tính theo giá áp dụng</small>
+              </div>
+
+              <div class="form-group">
+                <label for="tourFinalPrice">Giá cuối cùng (đã gồm VAT)</label>
+                <div class="input-icon-box">
+                  <i class="fa-solid fa-money-bill-wave"></i>
+                  <input
+                    id="tourFinalPrice"
+                    name="tourFinalPrice"
+                    type="number"
+                    placeholder="0"
+                    readonly
+                  />
+                </div>
+                <small>Đây là giá user sẽ thấy</small>
+              </div>
+            </div>
+          </section>
+
+          <section class="card create-card">
+            <div class="form-section-title">
+              <div class="section-badge blue-badge">
+                <i class="fa-regular fa-image"></i>
+              </div>
+              <h3>Hình ảnh tour</h3>
+            </div>
+
+            <div class="form-group">
+              <label>Ảnh bìa chính <span>*</span></label>
+              <div class="upload-box" id="coverUploadBox">
+                <div class="upload-icon">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </div>
+                <p>Kéo thả ảnh vào đây hoặc click để chọn</p>
+                <small>PNG, JPG up to 10MB</small>
+              </div>
+              <input id="coverImageInput" type="file" accept="image/*" hidden />
+              <div id="coverPreview" class="upload-preview"></div>
+            </div>
+
+            <div class="form-group">
+              <label>Thư viện ảnh</label>
+              <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-add" id="galleryAddBtn">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+              <input id="galleryImageInput" type="file" accept="image/*" multiple hidden />
+              <small>Tối đa 10 ảnh, mỗi ảnh tối đa 5MB</small>
+            </div>
+          </section>
+
+          <section class="card create-card">
+            <div class="form-section-title">
+              <div class="section-badge purple-badge">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </div>
+              <h3>Tổng quan tour</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="tourShortDescription">Mô tả ngắn <span>*</span></label>
+              <textarea
+                id="tourShortDescription"
+                name="tourShortDescription"
+                rows="4"
+                placeholder="Giới thiệu ngắn gọn về tour du lịch..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Điểm nổi bật</label>
+              <div id="highlightList" class="dynamic-list"></div>
+              <button type="button" class="add-row-btn" id="addHighlightBtn">
+                <i class="fa-solid fa-plus"></i> Thêm điểm nổi bật
+              </button>
+            </div>
+
+            <div class="form-group">
+              <label>Dịch vụ bao gồm</label>
+              <div id="includedServicesList" class="checkbox-grid"></div>
+            </div>
+
+            <div class="form-group">
+              <label>Dịch vụ không bao gồm</label>
+              <div id="excludedServicesList" class="checkbox-grid"></div>
+            </div>
+          </section>
+
+          <section class="card create-card">
+            <div class="form-section-title between">
+              <div class="left-title">
+                <div class="section-badge orange-badge">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </div>
+                <h3>Lịch trình tour</h3>
+              </div>
+
+              <button type="button" class="small-primary-btn" id="addDayBtn">
+                <i class="fa-solid fa-plus"></i> Thêm ngày
+              </button>
+            </div>
+
+            <div id="itineraryList" class="itinerary-list"></div>
+          </section>
+
+          <section class="card create-card location-card">
+            <div class="form-section-title">
+              <div class="section-badge red-badge">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <h3>Địa điểm & Bản đồ</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="meetingPoint">Điểm tập trung</label>
+              <input
+                id="meetingPoint"
+                name="meetingPoint"
+                type="text"
+                placeholder="Số 123 Đường ABC, Quận 1, TP.HCM"
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Bản đồ</label>
+              <div id="map"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="hotelInfo">Thông tin khách sạn</label>
+              <textarea
+                id="hotelInfo"
+                name="hotelInfo"
+                rows="3"
+                placeholder="Tên khách sạn, địa chỉ, tiện nghi..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="transportInfo">Phương tiện di chuyển</label>
+              <input
+                id="transportInfo"
+                name="transportInfo"
+                type="text"
+                placeholder="Máy bay / Xe khách / Tàu hỏa..."
+              />
+            </div>
+          </section>
+
+          <section class="card create-card">
+            <div class="form-section-title">
+              <div class="section-badge yellow-badge">
+                <i class="fa-regular fa-circle-check"></i>
+              </div>
+              <h3>Chính sách & Điều khoản</h3>
+            </div>
+
+            <div class="form-group">
+              <div style="display:flex; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
+                <button type="button" class="small-primary-btn" id="showCancelPolicyBtn">
+                  <i class="fa-solid fa-file-lines"></i> Hiển thị chính sách hủy tour
+                </button>
+
+                <button type="button" class="small-primary-btn" id="showTermsBtn">
+                  <i class="fa-solid fa-file-contract"></i> Hiển thị điều khoản & điều kiện
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cancelPolicy">Chính sách hủy tour</label>
+              <textarea
+                id="cancelPolicy"
+                name="cancelPolicy"
+                rows="4"
+                placeholder="Nhập chính sách hủy tour..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="termsConditions">Điều khoản & Điều kiện</label>
+              <textarea
+                id="termsConditions"
+                name="termsConditions"
+                rows="4"
+                placeholder="Nhập điều khoản & điều kiện..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="otherNotes">Ghi chú</label>
+              <textarea
+                id="otherNotes"
+                name="otherNotes"
+                rows="3"
+                placeholder="Các lưu ý khác..."
+              ></textarea>
+            </div>
+          </section>
+        </div>
+
+        <div class="create-tour-side">
+          <section class="card side-card sticky-card">
+            <h3>Hành động</h3>
+
+            <div class="action-btn-group">
+              <button class="full-btn primary-btn" id="publishTourBtn">Xuất bản tour</button>
+              <button class="full-btn secondary-btn" id="saveDraftBtn">Lưu nháp</button>
+              <button class="full-btn outline-btn" id="cancelCreateTourBtn">Hủy</button>
+            </div>
+
+            <div class="side-divider"></div>
+
+            <div class="side-block">
+              <h4>Import Excel</h4>
+              <button type="button" class="full-btn outline-btn" id="importExcelBtn">
+                <i class="fa-solid fa-file-excel"></i> Import file Excel
+              </button>
+              <input
+                id="excelFileInput"
+                type="file"
+                accept=".xlsx,.xls"
+                hidden
+              />
+              <small style="display:block;margin-top:8px;color:#666;">
+                File Excel phải đúng tên cột để hệ thống tự đổ dữ liệu.
+              </small>
+            </div>
+
+            <div class="side-divider"></div>
+
+            <div class="side-block">
+              <h4>Thông tin bắt buộc</h4>
+              <div class="required-item" id="requiredBasicInfo">
+                <span class="required-dot"></span>
+                <span>Thông tin cơ bản</span>
+              </div>
+              <div class="required-item" id="requiredCoverImage">
+                <span class="required-dot"></span>
+                <span>Hình ảnh tour</span>
+              </div>
+              <div class="required-item" id="requiredDescription">
+                <span class="required-dot"></span>
+                <span>Mô tả tour</span>
+              </div>
+              <div class="required-item" id="requiredItinerary">
+                <span class="required-dot"></span>
+                <span>Lịch trình</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="tips-card">
+            <h3><i class="fa-regular fa-lightbulb"></i> Mẹo tạo tour</h3>
+            <ul>
+              <li>Sử dụng hình ảnh chất lượng cao</li>
+              <li>Mô tả chi tiết lịch trình</li>
+              <li>Cập nhật chính sách rõ ràng</li>
+              <li>Kiểm tra kỹ trước khi xuất bản</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+      <script src="../../assets/js/provider/taotour.js"></script>
+      <script src="../../assets/js/provider/provider-notifications.js"></script>
+      <script src="../../assets/js/provider/provider-logout.js"></script>
+    </main>
+  </body>
+</html>

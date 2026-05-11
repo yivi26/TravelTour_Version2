@@ -1,0 +1,232 @@
+@import url("./ttkhachhang.css");
+
+.booking-step--completed .booking-step__bubble {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.booking-step--completed .booking-step__label {
+  color: var(--primary-dark);
+}
+
+.booking-step__line--done {
+  background: var(--primary);
+}
+
+.option-panel {
+  display: grid;
+  gap: 28px;
+}
+
+.option-form {
+  display: grid;
+  gap: 30px;
+}
+
+.option-group {
+  display: grid;
+  gap: 16px;
+}
+
+.option-group__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.option-group__title h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.option-group__title h3 span {
+  color: #f36868;
+}
+
+.option-group__icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.option-group__icon::before,
+.option-group__icon::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.option-group__icon--room::before {
+  inset: 1px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.option-group__icon--room::after {
+  left: 4px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  box-shadow: 0 4px 0 0 currentColor;
+}
+
+.option-group__icon--pickup::before {
+  left: 1px;
+  top: 8px;
+  width: 12px;
+  height: 6px;
+  border: 2px solid currentColor;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  transform: skewX(-16deg);
+}
+
+.option-group__icon--pickup::after {
+  right: 0;
+  top: 3px;
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.option-group__icon--meal::before {
+  left: 3px;
+  top: 1px;
+  width: 3px;
+  height: 16px;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.option-group__icon--meal::after {
+  right: 2px;
+  top: 1px;
+  width: 8px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 30% 100%);
+}
+
+.option-list {
+  display: grid;
+  gap: 14px;
+}
+
+.option-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 0 18px;
+  border: 1px solid #dde6ec;
+  border-radius: 18px;
+  background: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.18s ease;
+}
+
+.option-card:hover {
+  transform: translateY(-1px);
+}
+
+.option-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option-card__dot {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: 2px solid #e2e8ef;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.option-card__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.option-card__content--multi {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 20px;
+}
+
+.option-card__title,
+.option-card__detail,
+.option-card__price {
+  color: #2f3948;
+}
+
+.option-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.option-card__title small {
+  display: inline;
+  margin-left: 6px;
+  color: #7b8596;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.option-card__detail {
+  color: #6f7988;
+  font-size: 0.96rem;
+  font-weight: 500;
+}
+
+.option-card__price {
+  flex: 0 0 auto;
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.option-card.is-selected {
+  border-color: rgba(24, 197, 143, 0.35);
+  box-shadow: 0 8px 18px rgba(24, 197, 143, 0.12);
+}
+
+.option-card.is-selected .option-card__dot {
+  border-color: #1e2533;
+  background: radial-gradient(circle at center, #1e2533 0 4px, transparent 5px);
+}
+
+@media (max-width: 860px) {
+  .option-card,
+  .option-card__content {
+    align-items: flex-start;
+  }
+
+  .option-card {
+    padding: 16px;
+  }
+
+  .option-card__content,
+  .option-card__content--multi {
+    grid-template-columns: 1fr;
+    justify-content: start;
+  }
+}

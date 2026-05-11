@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour đang dẫn</title>
+    <link rel="stylesheet" href="../../assets/css/guide/tongquan.css" />
+    <link rel="stylesheet" href="../../assets/css/guide/tourdangdan.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <header class="topbar">
+        <div class="topbar-left">
+          <a href="tongquan.html" class="logo">TravelTour</a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-info">
+            <p class="user-name" id="topbarUserName">Đang tải...</p>
+            <p class="user-role" id="topbarUserRole">Hướng dẫn viên</p>
+          </div>
+
+          <img
+            class="user-avatar"
+            id="topbarUserAvatar"
+            src="https://ui-avatars.com/api/?name=User&background=16a34a&color=fff"
+            alt="Guide Avatar"
+          />
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        <aside class="sidebar">
+          <nav class="sidebar-menu">
+            <a href="tongquan.html" class="menu-item">
+              <span class="menu-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+
+            <a href="lichtrinh.html" class="menu-item">
+              <span class="menu-icon">🕘</span>
+              <span>Lịch trình của tôi</span>
+            </a>
+
+            <a href="tourdangdan.html" class="menu-item active">
+              <span class="menu-icon">📅</span>
+              <span>Tour đang dẫn</span>
+            </a>
+
+            <a href="khachhang.html" class="menu-item">
+              <span class="menu-icon">👥</span>
+              <span>Khách hàng</span>
+            </a>
+
+            <a href="thunhap.html" class="menu-item">
+              <span class="menu-icon">💰</span>
+              <span>Thu nhập</span>
+            </a>
+
+            <a href="hosocanhan.html" class="menu-item">
+              <span class="menu-icon">👤</span>
+              <span>Hồ sơ cá nhân</span>
+            </a>
+
+            <button class="menu-item logout-btn" type="button" id="logoutBtn">
+              <span class="menu-icon">🚪</span>
+              <span>Đăng xuất</span>
+            </button>
+          </nav>
+        </aside>
+
+        <main class="main-content">
+          <div class="page-container">
+            <div class="page-header">
+              <h1>Tour đang dẫn</h1>
+              <p>Quản lý các tour bạn đang phụ trách</p>
+            </div>
+
+            <div class="card tours-header-card">
+              <div class="tours-header-row">
+                <div>
+                  <h3 class="section-title small-title">Tour đang dẫn</h3>
+                  <p class="header-desc" id="tourCountText">
+                    Bạn đang có 0 tour đang hoạt động
+                  </p>
+                </div>
+
+                <div class="search-box">
+                  <input
+                    type="text"
+                    id="tourSearchInput"
+                    placeholder="Tìm kiếm tour..."
+                  />
+                  <button id="searchBtn" class="search-btn">Tìm kiếm</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="tour-grid" id="tourGrid"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../assets/js/guide/guideTopbar.js"></script>
+    <script src="../../assets/js/guide/tourdangdan.js"></script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking của tôi - TravelTour</title>
+    <link rel="stylesheet" href="../../assets/css/customer/customer.css" />
+    <link rel="stylesheet" href="../../assets/css/customer/booking.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Top Navigation -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="menuToggle">☰</button>
+          <a href="customer.html" class="logo">TravelTour</a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="user-info">
+            <p class="user-name">Nguyễn Văn An</p>
+            <p class="user-role">Khách hàng</p>
+          </div>
+          <img
+            class="user-avatar"
+            src="https://images.unsplash.com/photo-1768933294181-82778103e501?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGFzaWFuJTIwd29tYW4lMjB0cmF2ZWxlciUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MzY3MjYxNXww&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="User Avatar"
+          />
+        </div>
+      </header>
+
+      <div class="dashboard-body">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+          <nav class="sidebar-menu">
+            <a href="customer.html" class="menu-item">
+              <span class="menu-icon">👤</span>
+              <span>Thông tin cá nhân</span>
+            </a>
+
+            <a href="history.html" class="menu-item">
+              <span class="menu-icon">🕘</span>
+              <span>Lịch sử đặt tour</span>
+            </a>
+
+            <a href="booking.html" class="menu-item active">
+              <span class="menu-icon">📅</span>
+              <span>Booking của tôi</span>
+            </a>
+
+            <a href="changepass.html" class="menu-item">
+              <span class="menu-icon">🔒</span>
+              <span>Đổi mật khẩu</span>
+            </a>
+
+            <button class="menu-item logout-btn" type="button">
+              <span class="menu-icon">🚪</span>
+              <span>Đăng xuất</span>
+            </button>
+          </nav>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Main -->
+        <main class="main-content">
+          <div class="page-container booking-page-container">
+            <section class="page-header booking-page-header">
+              <h1>Booking của tôi</h1>
+              <p>Quản lý các chuyến đi sắp tới của bạn</p>
+            </section>
+
+            <!-- Statistics -->
+            <section class="booking-stats">
+              <div class="stat-card">
+                <div class="stat-left">
+                  <p class="stat-label">Sắp diễn ra</p>
+                  <p class="stat-value stat-primary" id="upcomingCount">2</p>
+                </div>
+                <div class="stat-icon stat-icon-primary">📅</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-left">
+                  <p class="stat-label">Đã hoàn thành</p>
+                  <p class="stat-value stat-blue" id="completedCount">3</p>
+                </div>
+                <div class="stat-icon stat-icon-blue">✅</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-left">
+                  <p class="stat-label">Tổng booking</p>
+                  <p class="stat-value" id="totalCount">5</p>
+                </div>
+                <div class="stat-icon stat-icon-muted">👥</div>
+              </div>
+            </section>
+
+            <!-- Upcoming bookings -->
+            <section class="card upcoming-card">
+              <h2 class="section-title">Chuyến đi sắp tới</h2>
+              <div id="upcomingBookingList" class="upcoming-booking-list"></div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div id="officeModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Thanh toán tại văn phòng</h3>
+        <p>📍 120 Hoàng Minh Thảo, Đà Nẵng</p>
+        <p>📞 1900 1234</p>
+        <p>⏰ 8h - 20h mỗi ngày</p>
+        <p>Mang theo mã booking khi đến nhé!</p>
+        <button id="closeModal">Đóng</button>
+      </div>
+    </div>
+    <div class="modal hidden" id="logoutModal">
+      <div class="modal-content">
+        <h3>Bạn có muốn đăng xuất không?</h3>
+
+        <div class="modal-actions">
+          <button class="btn-cancel" id="cancelLogout">Hủy</button>
+          <button class="btn-confirm" id="confirmLogout">Đăng xuất</button>
+        </div>
+      </div>
+    </div>
+    <script src="../../assets/js/customer/booking.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelTour - Admin Tổng quan</title>
+    <link rel="stylesheet" href="../../assets/css/admin/admin-base.css" />
+    <link rel="stylesheet" href="../../assets/css/admin/tongquan.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-name">TravelTour</div>
+          <div class="brand-sub">Admin Dashboard</div>
+        </div>
+
+        <nav id="sidebarNav" class="nav"></nav>
+
+        <button id="logoutBtn" class="sidebar-logout" type="button">
+          Đăng xuất
+        </button>
+
+        <div class="sidebar-footer">© 2026 TravelTour</div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <h1>Tổng quan</h1>
+          <div class="top-actions">
+            <label class="search">
+              <input type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm" />
+            </label>
+
+            <button class="bell" type="button" aria-label="Thông báo">
+              🔔
+              <span class="dot"></span>
+            </button>
+
+            <div class="user">
+              <div class="avatar user-avatar">AD</div>
+              <div class="user-info">
+                <div class="name">Admin User</div>
+                <div class="email">admin@traveltour.vn</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="stats-grid" id="statsGrid"></section>
+
+        <div class="panels">
+          <section class="panel" aria-labelledby="booking-heading">
+            <div class="panel-header">
+              <h2 id="booking-heading">Booking gần đây</h2>
+              <a href="#" class="link">Xem tất cả</a>
+            </div>
+            <div class="list" id="bookingList"></div>
+          </section>
+
+          <section class="panel" aria-labelledby="popular-heading">
+            <div class="panel-header">
+              <h2 id="popular-heading">Tour phổ biến</h2>
+            </div>
+            <div class="list" id="popularTours"></div>
+          </section>
+        </div>
+
+        <section class="highlight-grid" id="highlightGrid"></section>
+      </main>
+    </div>
+
+    <script src="../../assets/js/admin/tongquan.js"></script>
+    <script src="../../assets/js/admin/thongbao.js"></script>
+    <script src="../../assets/js/admin/logout.js"></script>
+  </body>
+</html>

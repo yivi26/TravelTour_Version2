@@ -1,0 +1,123 @@
+/* Shared public navbar (copied from index.html style.css) */
+:root {
+  --primary: #1dbf73;
+  --primary-dark: #169c5e;
+  --text: #1f2937;
+  --white: #ffffff;
+  --border: #e5e7eb;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+}
+
+.navbar .container {
+  width: 1200px;
+  max-width: calc(100% - 32px);
+  margin: 0 auto;
+}
+
+.nav-container {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a.logo {
+  display: inline-block;
+  cursor: pointer;
+  transition:
+    color 0.28s ease,
+    opacity 0.28s ease,
+    transform 0.22s ease;
+}
+
+a.logo:hover {
+  color: var(--primary-dark);
+  opacity: 0.9;
+}
+
+a.logo:active {
+  transform: scale(0.97);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-icon {
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  background: transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Ensure content not hidden under fixed navbar */
+body.has-public-navbar {
+  padding-top: 72px;
+}
+

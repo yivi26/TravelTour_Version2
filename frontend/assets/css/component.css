@@ -1,0 +1,45 @@
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn--primary {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: #059669;
+}
+
+.btn--outline {
+  background-color: transparent;
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+.btn--outline:hover {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.new-price {
+  color: #10b981;
+  font-size: 20px;
+  font-weight: 700;
+}

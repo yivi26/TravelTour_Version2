@@ -1,0 +1,241 @@
+@import url("./ttkhachhang.css");
+
+.booking-step--completed .booking-step__bubble {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.booking-step--completed .booking-step__label {
+  color: var(--primary-dark);
+}
+
+.booking-step__line--done {
+  background: var(--primary);
+}
+
+.payment-panel {
+  display: grid;
+  gap: 28px;
+}
+
+.payment-form {
+  display: grid;
+  gap: 22px;
+}
+
+.payment-methods {
+  display: grid;
+  gap: 16px;
+}
+
+.payment-method {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 94px;
+  padding: 0 20px;
+  border: 1px solid #dde6ec;
+  border-radius: 18px;
+  background: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.18s ease;
+}
+
+.payment-method:hover {
+  transform: translateY(-1px);
+}
+
+.payment-method input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.payment-method__dot {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: 2px solid #e2e8ef;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.payment-method__icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.payment-method__icon::before,
+.payment-method__icon::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.payment-method__icon--card::before {
+  inset: 3px 1px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.payment-method__icon--card::after {
+  left: 4px;
+  top: 8px;
+  width: 14px;
+  border-top: 2px solid currentColor;
+}
+
+.payment-method__icon--wallet::before {
+  inset: 4px 1px 2px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.payment-method__icon--wallet::after {
+  right: 2px;
+  top: 8px;
+  width: 8px;
+  height: 4px;
+  border: 2px solid currentColor;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.payment-method__icon--later::before {
+  inset: 2px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.payment-method__icon--later::after {
+  left: 10px;
+  top: 6px;
+  width: 2px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: -3px 2px 0 0 currentColor;
+}
+
+.payment-method__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.payment-method__content--wide {
+  align-items: flex-start;
+}
+
+.payment-method__title,
+.payment-method__desc {
+  color: #2f3948;
+}
+
+.payment-method__title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.payment-method__desc {
+  color: #6f7988;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.payment-method.is-selected {
+  border-color: rgba(24, 197, 143, 0.35);
+  box-shadow: 0 8px 18px rgba(24, 197, 143, 0.12);
+}
+
+.payment-method.is-selected .payment-method__dot {
+  border-color: #1e2533;
+  background: radial-gradient(circle at center, #1e2533 0 4px, transparent 5px);
+}
+
+.card-form {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 18px;
+  background: #f8fafb;
+}
+
+.payment-confirm {
+  display: flex;
+  justify-content: center;
+}
+
+.terms-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #5d6676;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.terms-check input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.terms-check__box {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: 1px solid #d9e2e8;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+.terms-check input:checked + .terms-check__box {
+  border-color: var(--primary);
+  background: linear-gradient(
+    180deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.terms-check a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.action-button--disabled {
+  background: linear-gradient(180deg, #8ee3ca 0%, #76d7bb 100%);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.action-button--disabled:hover {
+  transform: none;
+}
+
+@media (max-width: 860px) {
+  .payment-method,
+  .payment-method__content,
+  .payment-method__content--wide {
+    align-items: flex-start;
+  }
+
+  .payment-method {
+    padding: 16px;
+  }
+
+  .payment-method__content {
+    flex-direction: column;
+  }
+}
